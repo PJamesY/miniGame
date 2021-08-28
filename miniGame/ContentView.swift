@@ -9,13 +9,44 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            VStack {
+                GameBtn(title: "TIC TAC TOC", views: AnyView(TicTacTocView()))
+                GameBtn(title: "TIC TAC TOC", views: AnyView(james()))
+                GameBtn(title: "TIC TAC TOC", views: AnyView(james()))
+            }
+            
+        }
     }
 }
+
+struct james: View {
+    var body: some View {
+        Text("TEXT")
+    }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct GameBtn: View {
+    var title: String
+    var views: AnyView
+
+    
+    var body: some View {
+        NavigationLink(
+            destination: views,
+            label: {
+                Text(title)
+                    .frame(width: 200, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.orange)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            })
     }
 }
