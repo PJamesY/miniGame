@@ -14,6 +14,7 @@
 		1A7E6B0326DA3F7300DB5D7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A7E6B0226DA3F7300DB5D7A /* Preview Assets.xcassets */; };
 		1A7E6B0626DA3F7300DB5D7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7E6B0426DA3F7300DB5D7A /* LaunchScreen.storyboard */; };
 		1A7E6B0E26DA74D000DB5D7A /* TicTacTocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E6B0D26DA74D000DB5D7A /* TicTacTocView.swift */; };
+		1A7E6B1426DA7F8400DB5D7A /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E6B1326DA7F8400DB5D7A /* PickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1A7E6B0526DA3F7300DB5D7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A7E6B0726DA3F7300DB5D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A7E6B0D26DA74D000DB5D7A /* TicTacTocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacTocView.swift; sourceTree = "<group>"; };
+		1A7E6B1326DA7F8400DB5D7A /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +60,11 @@
 		1A7E6AF826DA3F7200DB5D7A /* miniGame */ = {
 			isa = PBXGroup;
 			children = (
+				1A7E6B1226DA7F6700DB5D7A /* common */,
+				1A7E6B0F26DA7AAB00DB5D7A /* tictactoc */,
 				1A7E6AF926DA3F7200DB5D7A /* AppDelegate.swift */,
 				1A7E6AFB26DA3F7200DB5D7A /* SceneDelegate.swift */,
 				1A7E6AFD26DA3F7200DB5D7A /* ContentView.swift */,
-				1A7E6B0D26DA74D000DB5D7A /* TicTacTocView.swift */,
 				1A7E6AFF26DA3F7300DB5D7A /* Assets.xcassets */,
 				1A7E6B0426DA3F7300DB5D7A /* LaunchScreen.storyboard */,
 				1A7E6B0726DA3F7300DB5D7A /* Info.plist */,
@@ -76,6 +79,22 @@
 				1A7E6B0226DA3F7300DB5D7A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A7E6B0F26DA7AAB00DB5D7A /* tictactoc */ = {
+			isa = PBXGroup;
+			children = (
+				1A7E6B0D26DA74D000DB5D7A /* TicTacTocView.swift */,
+			);
+			path = tictactoc;
+			sourceTree = "<group>";
+		};
+		1A7E6B1226DA7F6700DB5D7A /* common */ = {
+			isa = PBXGroup;
+			children = (
+				1A7E6B1326DA7F8400DB5D7A /* PickerView.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +170,7 @@
 				1A7E6AFA26DA3F7200DB5D7A /* AppDelegate.swift in Sources */,
 				1A7E6AFC26DA3F7200DB5D7A /* SceneDelegate.swift in Sources */,
 				1A7E6AFE26DA3F7200DB5D7A /* ContentView.swift in Sources */,
+				1A7E6B1426DA7F8400DB5D7A /* PickerView.swift in Sources */,
 				1A7E6B0E26DA74D000DB5D7A /* TicTacTocView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
