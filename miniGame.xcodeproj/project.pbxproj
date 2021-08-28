@@ -13,6 +13,7 @@
 		1A7E6B0026DA3F7300DB5D7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A7E6AFF26DA3F7300DB5D7A /* Assets.xcassets */; };
 		1A7E6B0326DA3F7300DB5D7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A7E6B0226DA3F7300DB5D7A /* Preview Assets.xcassets */; };
 		1A7E6B0626DA3F7300DB5D7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7E6B0426DA3F7300DB5D7A /* LaunchScreen.storyboard */; };
+		1A7E6B0E26DA74D000DB5D7A /* TicTacTocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E6B0D26DA74D000DB5D7A /* TicTacTocView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1A7E6B0226DA3F7300DB5D7A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A7E6B0526DA3F7300DB5D7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A7E6B0726DA3F7300DB5D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A7E6B0D26DA74D000DB5D7A /* TicTacTocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacTocView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				1A7E6AF926DA3F7200DB5D7A /* AppDelegate.swift */,
 				1A7E6AFB26DA3F7200DB5D7A /* SceneDelegate.swift */,
 				1A7E6AFD26DA3F7200DB5D7A /* ContentView.swift */,
+				1A7E6B0D26DA74D000DB5D7A /* TicTacTocView.swift */,
 				1A7E6AFF26DA3F7300DB5D7A /* Assets.xcassets */,
 				1A7E6B0426DA3F7300DB5D7A /* LaunchScreen.storyboard */,
 				1A7E6B0726DA3F7300DB5D7A /* Info.plist */,
@@ -148,6 +151,7 @@
 				1A7E6AFA26DA3F7200DB5D7A /* AppDelegate.swift in Sources */,
 				1A7E6AFC26DA3F7200DB5D7A /* SceneDelegate.swift in Sources */,
 				1A7E6AFE26DA3F7200DB5D7A /* ContentView.swift in Sources */,
+				1A7E6B0E26DA74D000DB5D7A /* TicTacTocView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
