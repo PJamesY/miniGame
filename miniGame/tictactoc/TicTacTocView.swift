@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TicTacTocView: View {
     
-    @StateObject private var vieModel = GameViewModel()
+    @StateObject private var viewModel = GameViewModel()
     @State private var selectedCircleColor: GameColor = .red
     @State private var selectedLevel: Level = .easy
     
@@ -19,17 +19,21 @@ struct TicTacTocView: View {
                 PickerColorView(selectedCircleColor: $selectedCircleColor)
                 PickerLevelView(selectedLevel: $selectedLevel)
                 
-                LazyVGrid(columns: vieModel.columns, spacing: 5) {
+                LazyVGrid(columns: viewModel.columns, spacing: 5) {
                     ForEach(0..<9) {i in
                         ZStack{
                             GameSquareView(proxy: geometry, selectedSide: selectedCircleColor)
-                            PlayerIndicator(systemImageName: vieModel.moves[i]?.indicator ?? "")
+                            PlayerIndicator(systemImageName: viewModel.moves[i]?.indicator ?? "")
                         }
                         .onTapGesture {
-                            vieModel.processPlayerMove(for: i, level: selectedLevel.rawValue)
+                            viewModel.processPlayerMove(for: i, level: selectedLevel.rawValue)
                         }
                     }
                 }
+                .disabled(viewModel.isGameBoardDisabled)
+                .alert(item: $viewModel.alertItem, content: { alertItem in
+                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: .default(alertItem.buttonTitle, action: {viewModel.resetGame()}))
+                })
             }
             
             
@@ -71,10 +75,15 @@ struct PlayerIndicator: View {
     var systemImageName: String
     
     var body: some View {
-        Image(systemName: systemImageName)
-            .resizable()
-            .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .foregroundColor(.white)
+        if (systemImageName != "") {
+            Image(systemName: systemImageName)
+                .resizable()
+                .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.white)
+        }
+        
+        Text("")
+        
     }
 }
 
