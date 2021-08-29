@@ -31,19 +31,23 @@ final class GameViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     @Published var isGameStart = false
     
-    func processPlayerMove (for position: Int, level selectedLevel: String) {
+    func processPlayerMove (for position: Int, level selectedLevel: String, _ timers: TimerManager) {
         // 이미 차있으면 return
         if isSquareOccupied(in: moves, forIndex: position) {return}
         // 사람이 선택한곳에 저장
         moves[position] = Move(player: .human, boardIndex: position)
         // 사람이 이겼으면 alert 띄우주고 return
         if checkWinCondition(for: .human, in: moves) {
+            timers.stop()
             alertItem = AlertContext.humanWin
+            isGameStart = false
             return
         }
         // 무승부면 alert 띄어주고 return
         if checkForDraw(in: moves) {
+            timers.stop()
             alertItem = AlertContext.draw
+            isGameStart = false
             return
         }
         // 사람 턴이 끝나면 빙고판 disable
@@ -55,12 +59,16 @@ final class GameViewModel: ObservableObject {
             
             
             if checkWinCondition(for: .computer, in: moves) {
+                timers.stop()
                 alertItem = AlertContext.computerWin
+                isGameStart = false
                 return
             }
             
             if  checkForDraw(in: moves) {
+                timers.stop()
                 alertItem = AlertContext.draw
+                isGameStart = false
                 return
             }
             
@@ -71,7 +79,9 @@ final class GameViewModel: ObservableObject {
     }
     
     func setGameStart() {
-        isGameStart.toggle()
+        isGameStart = true
+        
+        
     }
     
     func determinComputerMovePosition(in moves: [Move?], level selectedLevel: String) -> Int {
@@ -133,6 +143,7 @@ final class GameViewModel: ObservableObject {
     }
     
     func checkWinCondition(for player: Player, in moves: [Move?]) -> Bool {
+        
         let playerPositon = getPlayerPostions(for: player, in: moves)
         for pattern in winPatternsForTicTacToc where pattern.isSubset(of: playerPositon) {return true}
         
@@ -140,6 +151,12 @@ final class GameViewModel: ObservableObject {
     }
     
     func checkForDraw(in moves: [Move?]) -> Bool {
+        
+//        if (moves.compactMap {$0}.count == 9) {
+//            isGameStart = false
+//            return true
+//        }
+//        return false
         return moves.compactMap {$0}.count == 9
     }
     

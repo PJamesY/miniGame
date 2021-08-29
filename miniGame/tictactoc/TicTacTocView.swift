@@ -10,9 +10,9 @@ import SwiftUI
 struct TicTacTocView: View {
     
     @StateObject private var viewModel = GameViewModel()
+    @StateObject var timerManager = TimerManager()
     @State private var selectedCircleColor: GameColor = .red
     @State private var selectedLevel: Level = .easy
-//    @State private var isGameStart = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -20,33 +20,46 @@ struct TicTacTocView: View {
                 VStack(spacing:10) {
                     PickerColorView(selectedCircleColor: $selectedCircleColor)
                     PickerLevelView(selectedLevel: $selectedLevel)
-                    
                 }
                 .disabled(viewModel.isGameStart)
                 
                 Spacer(minLength: 5)
                 
-                LazyVGrid(columns: viewModel.columns, spacing: 5) {
-                    ForEach(0..<9) {i in
-                        ZStack{
-                            GameSquareView(proxy: geometry, selectedSide: selectedCircleColor)
-                            PlayerIndicator(systemImageName: viewModel.moves[i]?.indicator ?? "")
-                        }
-                        .onTapGesture {
-                            viewModel.processPlayerMove(for: i, level: selectedLevel.rawValue)
+                Text("Record : \(timerManager.seconds)")
+                    .font(.system(size: 30))
+                    .padding(.bottom, 40)
+                
+                if (viewModel.isGameStart) {
+                    LazyVGrid(columns: viewModel.columns, spacing: 5) {
+                        ForEach(0..<9) {i in
+                            ZStack{
+                                GameSquareView(proxy: geometry, selectedSide: selectedCircleColor)
+                                PlayerIndicator(systemImageName: viewModel.moves[i]?.indicator ?? "")
+                            }
+                            .onTapGesture {
+                                viewModel.processPlayerMove(for: i, level: selectedLevel.rawValue, timerManager)
+                            }
                         }
                     }
+                    .disabled(viewModel.isGameBoardDisabled)
+                    .alert(item: $viewModel.alertItem, content: { alertItem in
+                        Alert(title: alertItem.title, message: alertItem.message, dismissButton: .default(alertItem.buttonTitle, action: {viewModel.resetGame()}))
+                    })
+                } else {
+                    Text("Start 버튼을 누르세요!!")
                 }
-                .disabled(viewModel.isGameBoardDisabled || !viewModel.isGameStart)
-                .alert(item: $viewModel.alertItem, content: { alertItem in
-                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: .default(alertItem.buttonTitle, action: {viewModel.resetGame()}))
-                })
+                
+                
+                
+                
+//                Text("record : \(timerManager.records)")
                 
                 Spacer(minLength: 10)
                 
                 HStack(spacing:30) {
-                    ButtonView(title: "START", buttonAction: viewModel.setGameStart)
-                    ButtonView(title: "RESET", buttonAction: viewModel.resetGame)
+                    ButtonView(title: "START", buttonAction: tictactokStart)
+                        .disabled(viewModel.isGameStart)
+                    ButtonView(title: "RESET", buttonAction: tictactocReset)
                 }
                 
                 
@@ -57,6 +70,21 @@ struct TicTacTocView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarTitle("TIC TAC TOC")        
     }
+    
+    func tictactokStart() -> Void {
+        viewModel.setGameStart()
+        self.timerManager.start()
+    }
+    
+    func tictactocReset() -> Void {
+        viewModel.resetGame()
+        self.timerManager.reset()
+    }
+    
+//    func tictiactocReset() -> Void {
+//        viewModel.resetGame()
+//        self.timerManager.reset()
+//    }
 }
 
 
