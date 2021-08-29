@@ -33,6 +33,40 @@ final class GameViewModel: ObservableObject {
     func processPlayerMove (for position: Int) {
         // 이미 차있으면 return
         if isSquareOccupied(in: moves, forIndex: position) {return}
+        // 사람이 선택한곳에 저장
+        moves[position] = Move(player: .human, boardIndex: position)
+        // 사람이 이겼으면 alert 띄우주고 return
+        if checkWinCondition(for: .human, in: moves) {
+            alertItem = AlertContext.humanWin
+            return
+        }
+        // 무승부면 alert 띄어주고 return
+        if checkForDraw(in: moves) {
+            alertItem = AlertContext.draw
+            return
+        }
+        // 사람 턴이 끝나면 빙고판 disable
+        isGameBoardDisabled = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+            let computerPosition = determinComputerMovePosition(in: moves)
+            moves[computerPosition] = Move(player: .computer, boardIndex: computerPosition)
+            
+            
+            if checkWinCondition(for: .computer, in: moves) {
+                alertItem = AlertContext.computerWin
+                return
+            }
+            
+            if  checkForDraw(in: moves) {
+                alertItem = AlertContext.draw
+                return
+            }
+            
+            isGameBoardDisabled = false
+        }
+        
+        
     }
     
     func determinComputerMovePosition(in moves: [Move?]) -> Int {
