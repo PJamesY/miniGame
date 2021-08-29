@@ -37,22 +37,16 @@ struct TicTacTocView: View {
                                 PlayerIndicator(systemImageName: viewModel.moves[i]?.indicator ?? "")
                             }
                             .onTapGesture {
+                                print("여기?????")
                                 viewModel.processPlayerMove(for: i, level: selectedLevel.rawValue, timerManager)
                             }
                         }
                     }
                     .disabled(viewModel.isGameBoardDisabled)
-                    .alert(item: $viewModel.alertItem, content: { alertItem in
-                        Alert(title: alertItem.title, message: alertItem.message, dismissButton: .default(alertItem.buttonTitle, action: {viewModel.resetGame()}))
-                    })
+                    
                 } else {
                     Text("Start 버튼을 누르세요!!")
                 }
-                
-                
-                
-                
-//                Text("record : \(timerManager.records)")
                 
                 Spacer(minLength: 10)
                 
@@ -64,6 +58,9 @@ struct TicTacTocView: View {
                 
                 
             }
+            .alert(item: $viewModel.alertItem, content: { alertItem in
+                Alert(title: alertItem.title, message: alertItem.message, dismissButton: .default(alertItem.buttonTitle, action: {viewModel.resetGame()}))
+            })
             
             
         }
@@ -73,12 +70,13 @@ struct TicTacTocView: View {
     
     func tictactokStart() -> Void {
         viewModel.setGameStart()
-        self.timerManager.start()
+        timerManager.reset()
+        timerManager.start()
     }
     
     func tictactocReset() -> Void {
         viewModel.resetGame()
-        self.timerManager.reset()
+        timerManager.reset()
     }
     
 //    func tictiactocReset() -> Void {
