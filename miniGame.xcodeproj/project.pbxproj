@@ -17,6 +17,8 @@
 		1A7E6B1426DA7F8400DB5D7A /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E6B1326DA7F8400DB5D7A /* PickerView.swift */; };
 		1A93CE0C26DB5CAF00EEF761 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A93CE0B26DB5CAF00EEF761 /* GameViewModel.swift */; };
 		1A93CE0E26DB5EDC00EEF761 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A93CE0D26DB5EDC00EEF761 /* Alert.swift */; };
+		1A93CE1226DBB74700EEF761 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A93CE1126DBB74700EEF761 /* Helper.swift */; };
+		1A93CE1426DBB89800EEF761 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A93CE1326DBB89800EEF761 /* TimerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		1A7E6B1326DA7F8400DB5D7A /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		1A93CE0B26DB5CAF00EEF761 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		1A93CE0D26DB5EDC00EEF761 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		1A93CE1126DBB74700EEF761 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		1A93CE1326DBB89800EEF761 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +68,12 @@
 		1A7E6AF826DA3F7200DB5D7A /* miniGame */ = {
 			isa = PBXGroup;
 			children = (
+				1A93CE1126DBB74700EEF761 /* Helper.swift */,
 				1A7E6B1226DA7F6700DB5D7A /* common */,
 				1A7E6B0F26DA7AAB00DB5D7A /* tictactoc */,
 				1A7E6AF926DA3F7200DB5D7A /* AppDelegate.swift */,
 				1A7E6AFB26DA3F7200DB5D7A /* SceneDelegate.swift */,
+				1A93CE1326DBB89800EEF761 /* TimerManager.swift */,
 				1A7E6AFD26DA3F7200DB5D7A /* ContentView.swift */,
 				1A7E6AFF26DA3F7300DB5D7A /* Assets.xcassets */,
 				1A7E6B0426DA3F7300DB5D7A /* LaunchScreen.storyboard */,
@@ -179,7 +185,9 @@
 				1A7E6AFE26DA3F7200DB5D7A /* ContentView.swift in Sources */,
 				1A7E6B1426DA7F8400DB5D7A /* PickerView.swift in Sources */,
 				1A7E6B0E26DA74D000DB5D7A /* TicTacTocView.swift in Sources */,
+				1A93CE1426DBB89800EEF761 /* TimerManager.swift in Sources */,
 				1A93CE0E26DB5EDC00EEF761 /* Alert.swift in Sources */,
+				1A93CE1226DBB74700EEF761 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
