@@ -30,7 +30,7 @@ final class GameViewModel: ObservableObject {
     @Published var isGameBoardDisabled = false
     @Published var alertItem: AlertItem?
     
-    func processPlayerMove (for position: Int) {
+    func processPlayerMove (for position: Int, level selectedLevel: String) {
         // 이미 차있으면 return
         if isSquareOccupied(in: moves, forIndex: position) {return}
         // 사람이 선택한곳에 저장
@@ -49,7 +49,7 @@ final class GameViewModel: ObservableObject {
         isGameBoardDisabled = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
-            let computerPosition = determinComputerMovePosition(in: moves)
+            let computerPosition = determinComputerMovePosition(in: moves, level: selectedLevel)
             moves[computerPosition] = Move(player: .computer, boardIndex: computerPosition)
             
             
@@ -69,30 +69,38 @@ final class GameViewModel: ObservableObject {
         
     }
     
-    func determinComputerMovePosition(in moves: [Move?]) -> Int {
-        // if AI can win, than win
-        let computerPositions = getPlayerPostions(for: .computer, in: moves)
+    func determinComputerMovePosition(in moves: [Move?], level selectedLevel: String) -> Int {
         
-        for pattern in winPatternsForTicTacToc {
-            let winPositions = pattern.subtracting(computerPositions)
+        
+        // if AI can win, than win
+        if (selectedLevel == "hard") {
+            let computerPositions = getPlayerPostions(for: .computer, in: moves)
             
-            if winPositions.count == 1 {
-                let isAvailable = !isSquareOccupied(in: moves, forIndex: winPositions.first!)
-                if isAvailable {return winPositions.first!}
+            for pattern in winPatternsForTicTacToc {
+                let winPositions = pattern.subtracting(computerPositions)
+                
+                if winPositions.count == 1 {
+                    let isAvailable = !isSquareOccupied(in: moves, forIndex: winPositions.first!)
+                    if isAvailable {return winPositions.first!}
+                }
             }
         }
+        
         
         // if AI can't win then block
-        let humanPositions = getPlayerPostions(for: .human, in: moves)
-        
-        for pattern in winPatternsForTicTacToc {
-            let winPositions = pattern.subtracting(humanPositions)
+        if (selectedLevel == "hard" || selectedLevel == "normal") {
+            let humanPositions = getPlayerPostions(for: .human, in: moves)
             
-            if winPositions.count == 1 {
-                let isAvailable = !isSquareOccupied(in: moves, forIndex: winPositions.first!)
-                if isAvailable {return winPositions.first!}
+            for pattern in winPatternsForTicTacToc {
+                let winPositions = pattern.subtracting(humanPositions)
+                
+                if winPositions.count == 1 {
+                    let isAvailable = !isSquareOccupied(in: moves, forIndex: winPositions.first!)
+                    if isAvailable {return winPositions.first!}
+                }
             }
         }
+        
         
         // if AI can't block then take middle square
         let centerSquare = 4

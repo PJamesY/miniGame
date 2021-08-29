@@ -23,9 +23,10 @@ struct TicTacTocView: View {
                     ForEach(0..<9) {i in
                         ZStack{
                             GameSquareView(proxy: geometry, selectedSide: selectedCircleColor)
+                            PlayerIndicator(systemImageName: vieModel.moves[i]?.indicator ?? "")
                         }
                         .onTapGesture {
-                            vieModel.processPlayerMove(for: i)
+                            vieModel.processPlayerMove(for: i, level: selectedLevel.rawValue)
                         }
                     }
                 }
@@ -63,6 +64,17 @@ struct GameSquareView: View {
         case .blue:
             CircleBoard(proxy: proxy, color: Color.blue)
         }
+    }
+}
+
+struct PlayerIndicator: View {
+    var systemImageName: String
+    
+    var body: some View {
+        Image(systemName: systemImageName)
+            .resizable()
+            .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .foregroundColor(.white)
     }
 }
 
