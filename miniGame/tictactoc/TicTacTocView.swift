@@ -26,7 +26,6 @@ struct TicTacTocView: View {
                 
                 Spacer(minLength: 5)
                 
-                
                 LazyVGrid(columns: viewModel.columns, spacing: 5) {
                     ForEach(0..<9) {i in
                         ZStack{
@@ -45,13 +44,11 @@ struct TicTacTocView: View {
                 
                 Spacer(minLength: 10)
                 
-                Button(action: viewModel.setGameStart, label: {
-                    /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
-                })
-                .frame(width: 300, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .background(Color.orange)
-                .foregroundColor(.white)
-                .cornerRadius(10)
+                HStack(spacing:30) {
+                    ButtonView(title: "START", buttonAction: viewModel.setGameStart)
+                    ButtonView(title: "RESET", buttonAction: viewModel.resetGame)
+                }
+                
                 
             }
             
@@ -61,6 +58,8 @@ struct TicTacTocView: View {
         .navigationBarTitle("TIC TAC TOC")        
     }
 }
+
+
 
 struct CircleBoard: View {
     var proxy: GeometryProxy
@@ -109,5 +108,22 @@ struct PlayerIndicator: View {
 struct TicTacTocView_Previews: PreviewProvider {
     static var previews: some View {
         TicTacTocView()
+    }
+}
+
+struct ButtonView: View {
+    
+    var title: String
+    var buttonAction: ()->Void
+    
+    
+    var body: some View {
+        Button(action: buttonAction, label: {
+            Text(title)
+        })
+        .frame(width: 150, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        .background(Color.orange)
+        .foregroundColor(.white)
+        .cornerRadius(10)
     }
 }
