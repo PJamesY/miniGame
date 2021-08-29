@@ -12,8 +12,8 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 GameBtn(title: "TIC TAC TOC", views: AnyView(TicTacTocView()))
-                GameBtn(title: "TIC TAC TOC", views: AnyView(james()))
-                GameBtn(title: "TIC TAC TOC", views: AnyView(james()))
+                GameBtn(title: "Running", views: AnyView(james()))
+                GameBtn(title: "Finding Same Card", views: AnyView(james()))
             }
             
         }
@@ -48,5 +48,7 @@ struct GameBtn: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             })
+            .padding()
+            
     }
 }
