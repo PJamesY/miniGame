@@ -12,12 +12,20 @@ struct TicTacTocView: View {
     @StateObject private var viewModel = GameViewModel()
     @State private var selectedCircleColor: GameColor = .red
     @State private var selectedLevel: Level = .easy
+//    @State private var isGameStart = false
     
     var body: some View {
         GeometryReader { geometry in
             VStack{
-                PickerColorView(selectedCircleColor: $selectedCircleColor)
-                PickerLevelView(selectedLevel: $selectedLevel)
+                VStack(spacing:10) {
+                    PickerColorView(selectedCircleColor: $selectedCircleColor)
+                    PickerLevelView(selectedLevel: $selectedLevel)
+                    
+                }
+                .disabled(viewModel.isGameStart)
+                
+                Spacer(minLength: 5)
+                
                 
                 LazyVGrid(columns: viewModel.columns, spacing: 5) {
                     ForEach(0..<9) {i in
@@ -34,6 +42,17 @@ struct TicTacTocView: View {
                 .alert(item: $viewModel.alertItem, content: { alertItem in
                     Alert(title: alertItem.title, message: alertItem.message, dismissButton: .default(alertItem.buttonTitle, action: {viewModel.resetGame()}))
                 })
+                
+                Spacer(minLength: 10)
+                
+                Button(action: viewModel.setGameStart, label: {
+                    /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+                })
+                .frame(width: 300, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .background(Color.orange)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+                
             }
             
             

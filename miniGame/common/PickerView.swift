@@ -19,6 +19,11 @@ enum Level: String, CaseIterable {
     case hard
 }
 
+enum FirstStartPlayer: String, CaseIterable {
+    case human
+    case computer
+}
+
 struct PickerColorView: View {
 
     @Binding var selectedCircleColor: GameColor
@@ -47,6 +52,20 @@ struct PickerLevelView: View {
         .padding(.top)
     }
 }
+
+struct PickerStartPlayer: View {
+    @Binding var selectedStartPlayer: Level
+    
+    var body: some View {
+        Picker(selection: $selectedStartPlayer, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/){
+            ForEach(FirstStartPlayer.allCases, id: \.self) {
+                Text($0.rawValue)
+            }
+        }
+    }
+}
+
+
 
 //struct PickerView_Previews: PreviewProvider {
 //    static var previews: some View {

@@ -29,6 +29,7 @@ final class GameViewModel: ObservableObject {
     @Published var moves: [Move?] = Array(repeating: nil, count: 9)
     @Published var isGameBoardDisabled = false
     @Published var alertItem: AlertItem?
+    @Published var isGameStart = false
     
     func processPlayerMove (for position: Int, level selectedLevel: String) {
         // 이미 차있으면 return
@@ -67,6 +68,10 @@ final class GameViewModel: ObservableObject {
         }
         
         
+    }
+    
+    func setGameStart() {
+        isGameStart.toggle()
     }
     
     func determinComputerMovePosition(in moves: [Move?], level selectedLevel: String) -> Int {
