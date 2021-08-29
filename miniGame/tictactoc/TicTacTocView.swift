@@ -29,6 +29,18 @@ struct TicTacTocView: View {
                     .font(.system(size: 30))
                     .padding(.bottom, 40)
                 
+//                if (viewModel.gameResult == GameResult.win) {
+//                    Text("Record : \(timerManager.seconds)")
+//                        .font(.system(size: 30))
+//                        .padding(.bottom, 40)
+//                } else if (viewModel.gameResult == GameResult.draw) {
+//                    Text("DRAW")
+//                } else {
+//                    Text("LOST")
+//                        .foregroundColor(.red)
+//                }
+                
+                
                 if (viewModel.isGameStart) {
                     LazyVGrid(columns: viewModel.columns, spacing: 5) {
                         ForEach(0..<9) {i in
@@ -37,7 +49,6 @@ struct TicTacTocView: View {
                                 PlayerIndicator(systemImageName: viewModel.moves[i]?.indicator ?? "")
                             }
                             .onTapGesture {
-                                print("여기?????")
                                 viewModel.processPlayerMove(for: i, level: selectedLevel.rawValue, timerManager)
                             }
                         }

@@ -11,6 +11,10 @@ enum Player {
     case human, computer
 }
 
+enum GameResult {
+    case win, draw, lost
+}
+
 struct Move {
     let player: Player
     let boardIndex: Int
@@ -30,6 +34,7 @@ final class GameViewModel: ObservableObject {
     @Published var isGameBoardDisabled = false
     @Published var alertItem: AlertItem?
     @Published var isGameStart = false
+    @Published var gameResult: GameResult = .win
     
     func processPlayerMove (for position: Int, level selectedLevel: String, _ timers: TimerManager) {
         // 이미 차있으면 return
@@ -41,6 +46,7 @@ final class GameViewModel: ObservableObject {
             timers.stop()
             alertItem = AlertContext.humanWin
             isGameStart = false
+            gameResult = .win
             return
         }
         // 무승부면 alert 띄어주고 return
@@ -48,6 +54,7 @@ final class GameViewModel: ObservableObject {
             timers.stop()
             alertItem = AlertContext.draw
             isGameStart = false
+            gameResult = .draw
             return
         }
         // 사람 턴이 끝나면 빙고판 disable
@@ -56,12 +63,13 @@ final class GameViewModel: ObservableObject {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
             let computerPosition = determinComputerMovePosition(in: moves, level: selectedLevel)
             moves[computerPosition] = Move(player: .computer, boardIndex: computerPosition)
-            
+            isGameBoardDisabled = false
             
             if checkWinCondition(for: .computer, in: moves) {
                 timers.stop()
                 alertItem = AlertContext.computerWin
                 isGameStart = false
+                gameResult = .lost
                 return
             }
             
@@ -69,10 +77,11 @@ final class GameViewModel: ObservableObject {
                 timers.stop()
                 alertItem = AlertContext.draw
                 isGameStart = false
+                gameResult = .draw
                 return
             }
             
-            isGameBoardDisabled = false
+            
         }
         
         
