@@ -145,6 +145,7 @@ final class GameViewModel: ObservableObject {
     
     func resetGame() {
         moves = Array(repeating: nil, count: 9)
+        isGameStart = false
     }
 }
 

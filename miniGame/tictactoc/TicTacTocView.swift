@@ -38,7 +38,7 @@ struct TicTacTocView: View {
                         }
                     }
                 }
-                .disabled(viewModel.isGameBoardDisabled)
+                .disabled(viewModel.isGameBoardDisabled || !viewModel.isGameStart)
                 .alert(item: $viewModel.alertItem, content: { alertItem in
                     Alert(title: alertItem.title, message: alertItem.message, dismissButton: .default(alertItem.buttonTitle, action: {viewModel.resetGame()}))
                 })
