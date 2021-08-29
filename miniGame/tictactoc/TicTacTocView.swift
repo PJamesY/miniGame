@@ -24,6 +24,9 @@ struct TicTacTocView: View {
                         ZStack{
                             GameSquareView(proxy: geometry, selectedSide: selectedCircleColor)
                         }
+                        .onTapGesture {
+                            vieModel.processPlayerMove(for: i)
+                        }
                     }
                 }
             }
