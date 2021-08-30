@@ -13,6 +13,7 @@ struct TicTacTocView: View {
     @StateObject var timerManager = TimerManager()
     @State private var selectedCircleColor: GameColor = .red
     @State private var selectedLevel: Level = .easy
+    @State private var selectedStartPlayer: FirstStartPlayer = .human
     
     var body: some View {
         GeometryReader { geometry in
@@ -21,6 +22,7 @@ struct TicTacTocView: View {
                     VStack(spacing:10) {
                         PickerColorView(selectedCircleColor: $selectedCircleColor)
                         PickerLevelView(selectedLevel: $selectedLevel)
+                        PickerStartPlayer(selectedStartPlayer: $selectedStartPlayer)
                     }
                     
                 }
