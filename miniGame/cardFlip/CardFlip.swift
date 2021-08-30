@@ -21,9 +21,9 @@ import SwiftUI
 
 struct CardFlip: View {
     
-    @State var flipped = false // state variable used to update the card
-    @State var row = 5
-    @State var col = 5
+//    @State var flipped = false // state variable used to update the card
+    @State var row = 4
+    @State var col = 4
     
     var body: some View {
         GeometryReader { geometry in
@@ -59,7 +59,14 @@ struct CardForFlip: View {
             .animation(.default) // implicitly applying animation
             .onTapGesture {
                 self.flipped.toggle()
+                delay()
             }
+    }
+    
+    private func delay()  {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            flipped = false
+        }
     }
 }
 
