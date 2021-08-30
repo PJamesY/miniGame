@@ -12,8 +12,8 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 GameBtn(title: "TIC TAC TOC", views: AnyView(TicTacTocView()))
+                GameBtn(title: "Finding Same Card", views: AnyView(CardFlip()))
                 GameBtn(title: "Running", views: AnyView(james()))
-                GameBtn(title: "Finding Same Card", views: AnyView(james()))
             }
             
         }
