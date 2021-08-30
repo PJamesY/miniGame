@@ -51,9 +51,13 @@ struct TicTacTocView: View {
                             .padding(.bottom, 40)
                     } else if (viewModel.gameResult == GameResult.draw) {
                         Text("DRAW")
+                            .foregroundColor(.blue)
+                            .padding(.bottom, 40)
                     } else {
                         Text("LOST")
                             .foregroundColor(.red)
+                            .padding(.bottom, 40)
+                        
                     }
                     Text("Start 버튼을 누르세요!!")
                 }
@@ -61,12 +65,12 @@ struct TicTacTocView: View {
                 Spacer(minLength: 10)
                 
                 HStack(spacing:30) {
-                    ButtonView(title: "START", buttonAction: tictactokStart)
-                        .disabled(viewModel.isGameStart)
-                    ButtonView(title: "RESET", buttonAction: tictactocReset)
+                    if (viewModel.isGameStart) {
+                        ButtonView(title: "RESET", buttonAction: tictactocReset)
+                    } else {
+                        ButtonView(title: "START", buttonAction: tictactokStart)
+                    }
                 }
-                
-                
             }
             .alert(item: $viewModel.alertItem, content: { alertItem in
                 Alert(title: alertItem.title, message: alertItem.message, dismissButton: .default(alertItem.buttonTitle, action: {viewModel.resetGame()}))
@@ -138,7 +142,11 @@ struct PlayerIndicator: View {
 
 struct TicTacTocView_Previews: PreviewProvider {
     static var previews: some View {
-        TicTacTocView()
+        Group {
+            TicTacTocView()
+                .preferredColorScheme(.dark)
+            TicTacTocView()
+        }
     }
 }
 
