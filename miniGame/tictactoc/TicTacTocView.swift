@@ -17,14 +17,15 @@ struct TicTacTocView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack{
-                VStack(spacing:10) {
-                    PickerColorView(selectedCircleColor: $selectedCircleColor)
-                    PickerLevelView(selectedLevel: $selectedLevel)
+                if (!viewModel.isGameStart) {
+                    VStack(spacing:10) {
+                        PickerColorView(selectedCircleColor: $selectedCircleColor)
+                        PickerLevelView(selectedLevel: $selectedLevel)
+                    }
+                    
                 }
-                .disabled(viewModel.isGameStart)
                 
                 Spacer(minLength: 5)
-                
                 
                 if (viewModel.isGameStart) {
                     Text("Record : \(timerManager.seconds)")
