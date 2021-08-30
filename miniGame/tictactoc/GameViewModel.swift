@@ -37,6 +37,13 @@ final class GameViewModel: ObservableObject {
     @Published var gameResult: GameResult = .win
     
     func processPlayerMove (for position: Int, level selectedLevel: String, _ timers: TimerManager) {
+        humanTurn(position: position, timers: timers)
+        computerTurn(selectedLevel: selectedLevel, timers: timers)
+    }
+    
+    
+    
+    func humanTurn(position:Int, timers:TimerManager) -> Void {
         // 이미 차있으면 return
         if isSquareOccupied(in: moves, forIndex: position) {return}
         // 사람이 선택한곳에 저장
@@ -59,7 +66,9 @@ final class GameViewModel: ObservableObject {
         }
         // 사람 턴이 끝나면 빙고판 disable
         isGameBoardDisabled = true
-        
+    }
+    
+    func computerTurn(selectedLevel: String, timers: TimerManager) -> Void {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
             let computerPosition = determinComputerMovePosition(in: moves, level: selectedLevel)
             moves[computerPosition] = Move(player: .computer, boardIndex: computerPosition)
@@ -83,8 +92,6 @@ final class GameViewModel: ObservableObject {
             
             
         }
-        
-        
     }
     
     func setGameStart() {

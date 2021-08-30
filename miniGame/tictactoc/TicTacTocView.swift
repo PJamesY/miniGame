@@ -85,6 +85,9 @@ struct TicTacTocView: View {
     }
     
     func tictactokStart() -> Void {
+        if (selectedStartPlayer == .computer) {
+            viewModel.computerTurn(selectedLevel: selectedLevel.rawValue, timers: timerManager)
+        }
         viewModel.setGameStart()
         timerManager.reset()
         timerManager.start()
