@@ -54,7 +54,7 @@ struct PickerLevelView: View {
 }
 
 struct PickerStartPlayer: View {
-    @Binding var selectedStartPlayer: Level
+    @Binding var selectedStartPlayer: FirstStartPlayer
     
     var body: some View {
         Picker(selection: $selectedStartPlayer, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/){
