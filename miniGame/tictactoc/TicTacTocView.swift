@@ -25,23 +25,11 @@ struct TicTacTocView: View {
                 
                 Spacer(minLength: 5)
                 
-                Text("Record : \(timerManager.seconds)")
-                    .font(.system(size: 30))
-                    .padding(.bottom, 40)
-                
-//                if (viewModel.gameResult == GameResult.win) {
-//                    Text("Record : \(timerManager.seconds)")
-//                        .font(.system(size: 30))
-//                        .padding(.bottom, 40)
-//                } else if (viewModel.gameResult == GameResult.draw) {
-//                    Text("DRAW")
-//                } else {
-//                    Text("LOST")
-//                        .foregroundColor(.red)
-//                }
-                
                 
                 if (viewModel.isGameStart) {
+                    Text("Record : \(timerManager.seconds)")
+                        .font(.system(size: 30))
+                        .padding(.bottom, 40)
                     LazyVGrid(columns: viewModel.columns, spacing: 5) {
                         ForEach(0..<9) {i in
                             ZStack{
@@ -56,6 +44,16 @@ struct TicTacTocView: View {
                     .disabled(viewModel.isGameBoardDisabled)
                     
                 } else {
+                    if (viewModel.gameResult == GameResult.win) {
+                        Text("Record : \(timerManager.seconds)")
+                            .font(.system(size: 30))
+                            .padding(.bottom, 40)
+                    } else if (viewModel.gameResult == GameResult.draw) {
+                        Text("DRAW")
+                    } else {
+                        Text("LOST")
+                            .foregroundColor(.red)
+                    }
                     Text("Start 버튼을 누르세요!!")
                 }
                 
@@ -89,11 +87,6 @@ struct TicTacTocView: View {
         viewModel.resetGame()
         timerManager.reset()
     }
-    
-//    func tictiactocReset() -> Void {
-//        viewModel.resetGame()
-//        self.timerManager.reset()
-//    }
 }
 
 
