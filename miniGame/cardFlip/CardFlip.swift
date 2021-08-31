@@ -7,23 +7,13 @@
 
 import SwiftUI
 
-//enum SizeNumber: Int {
-//    case row = 4
-//    case col = 4
-//}
-
-//struct SizeNumber {
-//    var row = 4
-//    let col = 4
-//}
-
-//let SizeNumber = ["row": 4, "col":4]
+var currentIdx = 0
 
 struct CardFlip: View {
-    
-//    @State var flipped = false // state variable used to update the card
-    @State var row = 4
-    @State var col = 4
+    let row = 4
+    let col = 4
+    let colors:[Color] = [Color.red, Color.red, Color.blue, Color.blue, Color.green, Color.green, Color.yellow, Color.yellow, Color.orange, Color.orange, .purple, .purple, .black, .black, .pink, .pink]
+    let shuffledIndex:[Int] = Array(0...15).shuffled()
     
     var body: some View {
         GeometryReader { geometry in
@@ -31,7 +21,7 @@ struct CardFlip: View {
                 ForEach(0..<self.row) { row in
                     HStack(alignment:.center) {
                         ForEach(0..<self.col) { col in
-                            CardForFlip(geometry:geometry)
+                            CardForFlip(geometry:geometry, answer: colors[shuffledIndex[row + (col * 3) + col]])
                         }
                     }
                     
@@ -49,12 +39,13 @@ struct CardFlip: View {
 struct CardForFlip: View {
     
     var geometry: GeometryProxy
+    var answer: Color
     @State var flipped = false // state variable used to update the card
     
     var body: some View {
         RoundedRectangle(cornerRadius: 20)
             .frame(width: geometry.size.width * 0.2, height: geometry.size.height / (5*1.5), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .foregroundColor(self.flipped ? .red : .blue) // change the card color when flipped
+            .foregroundColor(self.flipped ? answer : .gray) // change the card color when flipped
             .rotation3DEffect(self.flipped ? Angle(degrees: 180): Angle(degrees: 0), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
             .animation(.default) // implicitly applying animation
             .onTapGesture {
@@ -72,6 +63,10 @@ struct CardForFlip: View {
 
 struct CardFlip_Previews: PreviewProvider {
     static var previews: some View {
-        CardFlip()
+        Group {
+            CardFlip()
+                .preferredColorScheme(.light)
+            CardFlip()
+        }
     }
 }
