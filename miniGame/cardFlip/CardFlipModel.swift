@@ -19,6 +19,7 @@ final class CardFlipModel: ObservableObject {
     @Published var flipedCount = 0
     @Published var canBeFliped = true
     var compareIdx: Int = 1
+    var numberAnswer: Int = 0
     
     private func unflip(idx:Int, isCanBeFliped: Bool)  {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -64,6 +65,7 @@ final class CardFlipModel: ObservableObject {
         if (colors[shuffledIndex[idx]].answer == colors[shuffledIndex[compareIdx]].answer) {
             colors[shuffledIndex[idx]].correct = true
             colors[shuffledIndex[compareIdx]].correct = true
+            numberAnswer += 1
             canBeFliped = true
             flipedCount = 0
         } else {

@@ -29,11 +29,8 @@ struct CardFlip: View {
                     }
                 }
             }
-            .frame(width: geometry.size.width, height: geometry.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
+            .frame(width: geometry.size.width, height: geometry.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)   
         }
-        
-        
     }
 }
 
@@ -55,6 +52,9 @@ struct CardForFlip: View {
                     cf.flipCard(for: idx)
                 if (tm.timerMode != .running) {
                     tm.start()
+                }
+                if (cf.numberAnswer == 8) {
+                    tm.stop()
                 }
                 
             }
