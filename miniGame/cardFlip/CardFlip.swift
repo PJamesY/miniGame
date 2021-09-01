@@ -58,7 +58,10 @@ struct CardForFlip: View {
             .rotation3DEffect(cf.colors[cf.shuffledIndex[idx]].flipped ? Angle(degrees: 180): Angle(degrees: 0), axis: (x: CGFloat(0), y: CGFloat(10), z: CGFloat(0)))
             .animation(.default) // implicitly applying animation
             .onTapGesture {
-                cf.flipCard(for: idx)
+//                if (cf.canBeFliped) {
+                    cf.flipCard(for: idx)
+//                }
+                
 //                cf.colors[cf.shuffledIndex[idx]].flipped.toggle()
 //                delay()
 //                if (cardFlipModel.colors[idx].flipped) {

@@ -25,30 +25,75 @@ final class CardFlipModel: ObservableObject {
 //
 //    }
     
-    
+    private func delay(idx:Int)  {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.colors[self.shuffledIndex[idx]].flipped = false
+        }
+    }
     
     func flipCard (for idx:Int) {
 //        if
         print("INDEX", idx)
-        colors[shuffledIndex[idx]].flipped = true
-        flipedCount += 1
-        if (flipedCount == 1) {
-//            checkSheet.append(idx)
+        if (!colors[shuffledIndex[idx]].correct && canBeFliped) {
+            colors[shuffledIndex[idx]].flipped = true
+            flipedCount += 1
             
-            compareIdx = idx
-        }
-        if (flipedCount == 2) {
-            if (colors[shuffledIndex[compareIdx]].answer == colors[shuffledIndex[idx]].answer) {
-                colors[shuffledIndex[compareIdx]].correct = true
-                colors[shuffledIndex[idx]].correct = true
+            if (flipedCount == 1) {
+                print("1개 뒤집힘")
+                compareIdx = idx
+            } else if (flipedCount == 2) {
+                canBeFliped = false
+                if (colors[shuffledIndex[idx]].answer == colors[shuffledIndex[compareIdx]].answer) {
+                    print("정답!!!")
+                    colors[shuffledIndex[idx]].correct = true
+                    colors[shuffledIndex[compareIdx]].correct = true
+                } else {
+                    print("틀림1!!")
+                    delay(idx: idx)
+                    delay(idx: compareIdx)
+//                    canBeFliped = true
+                }
+                canBeFliped = true
+                flipedCount = 0
             }
-            else {
-                colors[shuffledIndex[compareIdx]].flipped = false
-                colors[shuffledIndex[idx]].flipped = false
-            }
-            flipedCount = 0
-//            checkAnswer()
         }
+        
+        
+//        if (flipedCount == 1) {
+//            print("1개 뒤집힘")
+//            compareIdx = idx
+//        } else if (flipedCount == 2) {
+//            print("2개 뒤집힘")
+//            canBeFliped = false
+//            delay(idx: idx)
+//            delay(idx: compareIdx)
+////            canBeFliped = true
+//            flipedCount = 0
+//        }
+//        if (flipedCount == 1) {
+////            checkSheet.append(idx)
+//
+//            compareIdx = idx
+//        }
+//        else if (flipedCount == 2) {
+//            print("compare", compareIdx, idx)
+//            if (colors[shuffledIndex[compareIdx]].answer == colors[shuffledIndex[idx]].answer) {
+//                colors[shuffledIndex[compareIdx]].correct = true
+//                colors[shuffledIndex[idx]].correct = true
+//            }
+//            else {
+//                print("No answer")
+//                colors[shuffledIndex[compareIdx]].flipped = false
+//                colors[shuffledIndex[idx]].flipped = false
+//            }
+//            flipedCount = 0
+////            checkAnswer()
+//        }
+//        else if (flipedCount == 3) {
+//            flipedCount = 0
+//        }
+        
+        
 //        print("KKKKK", flipedCount, color[0].0, color[0].answer, color[0].2)
 //        if ( flipedCount == 2 ) {
 //            canBeFliped = false
