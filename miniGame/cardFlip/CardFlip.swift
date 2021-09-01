@@ -12,14 +12,19 @@ var currentIdx = 0
 struct CardFlip: View {
     
     @StateObject private var cardFlipModel = CardFlipModel()
+    @StateObject var timerManager = TimerManager()
+    
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                Text("Record : \(timerManager.seconds)")
+                    .font(.system(size: 30))
+                    .padding(.bottom, 40)
                 ForEach(0..<cardFlipModel.row) { row in
                     HStack(alignment:.center) {
                         ForEach(0..<cardFlipModel.col) { col in
-                            CardForFlip(geometry:geometry, cf: cardFlipModel, idx:row + (col * 3) + col)
+                            CardForFlip(geometry:geometry, cf: cardFlipModel, tm: timerManager, idx:row + (col * 3) + col)
                         }
                     }
                 }
@@ -36,7 +41,9 @@ struct CardForFlip: View {
     
     var geometry: GeometryProxy
     var cf: CardFlipModel
+    var tm: TimerManager
     var idx: Int
+    
     
     var body: some View {
         RoundedRectangle(cornerRadius: 20)
@@ -46,6 +53,9 @@ struct CardForFlip: View {
             .animation(.default) // implicitly applying animation
             .onTapGesture {
                     cf.flipCard(for: idx)
+                if (tm.timerMode != .running) {
+                    tm.start()
+                }
                 
             }
     }
