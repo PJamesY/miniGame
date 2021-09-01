@@ -22,6 +22,7 @@ struct CardFlip: View {
                     .font(.system(size: 30))
                     .padding(.bottom, 40)
                 Text("COMBO: \(cardFlipModel.combo)")
+                    .padding(.bottom, 20)
                 ForEach(0..<cardFlipModel.row) { row in
                     HStack(alignment:.center) {
                         ForEach(0..<cardFlipModel.col) { col in
@@ -29,6 +30,14 @@ struct CardFlip: View {
                         }
                     }
                 }
+                .padding(.bottom, 10)
+                Button {
+                    cardFlipModel.reset()
+                    timerManager.reset()
+                } label: {
+                    Text("RESET")
+                }
+                .padding(.top, 30)
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }

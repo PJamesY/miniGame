@@ -7,20 +7,33 @@
 
 import SwiftUI
 
+let initColors:  [(color:Color, answer:Int, flipped:Bool, correct:Bool)] = [
+    (.red, 1, false, false), (.red, 1, false, false), (.blue, 2, false, false), (.blue, 2, false, false), (.green, 3, false, false), (.green, 3, false, false),
+    (.yellow, 4, false, false), (.yellow, 4, false, false), (.orange, 5, false, false), (.orange, 5, false, false), (.purple, 6, false, false), (.purple, 6, false, false),
+    (.black, 7, false, false), (.black, 7, false, false), (.pink, 8, false, false), (.pink, 8, false, false)]
+
 final class CardFlipModel: ObservableObject {
     @Published var row = 4
     @Published var col = 4
     
-    @Published var colors: [(color:Color, answer:Int, flipped:Bool, correct:Bool)] = [
-        (.red, 1, false, false), (.red, 1, false, false), (.blue, 2, false, false), (.blue, 2, false, false), (.green, 3, false, false), (.green, 3, false, false),
-        (.yellow, 4, false, false), (.yellow, 4, false, false), (.orange, 5, false, false), (.orange, 5, false, false), (.purple, 6, false, false), (.purple, 6, false, false),
-        (.black, 7, false, false), (.black, 7, false, false), (.pink, 8, false, false), (.pink, 8, false, false)]
+    @Published var colors: [(color:Color, answer:Int, flipped:Bool, correct:Bool)] = initColors
     @Published var shuffledIndex:[Int] = Array(0...15).shuffled()
     @Published var flipedCount = 0
     @Published var canBeFliped = true
     var compareIdx: Int = 1
     var numberAnswer: Int = 0
     var combo: Int = 0
+    
+    func reset() {
+        colors = initColors
+        shuffledIndex = Array(0...15).shuffled()
+        compareIdx = 1
+        flipedCount = 0
+        canBeFliped = true
+        numberAnswer = 0
+        combo = 0
+        
+    }
     
     private func unflip(idx:Int, isCanBeFliped: Bool)  {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
