@@ -15,6 +15,7 @@ struct HelicopterGame: View {
     @State private var score = 9
     
     @State var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     var body: some View {
         GeometryReader { geo in
@@ -40,10 +41,31 @@ struct HelicopterGame: View {
                     .foregroundColor(.white)
                     .position(x: geo.size.width - 100, y: geo.size.height / 10)
                 
+                
+                
+                
                 isPaused ? Button("Restart") {resume()} : nil
 
-                
+                Button(action: {
+                        self.mode.wrappedValue.dismiss()
+                        }) {
+                            HStack {
+                            Image("ic_back") // set image here
+                                .aspectRatio(contentMode: .fit)
+                                .foregroundColor(.white)
+                                Text("Go back")
+                            }
+                        }
             }
+            .navigationBarHidden(true)
+//            .navigationBarBackButtonHidden(true)
+//            .navigationBarItems(leading: Button(action : {
+//                print("back!!!")
+//                self.mode.wrappedValue.dismiss()
+//            }){
+//                Image(systemName: "arrow.left")
+//            })
+            
             
             .frame(width: geo.size.width, height: geo.size.height)
             .background(Color.black)
@@ -53,13 +75,24 @@ struct HelicopterGame: View {
                 }
                 
             })
+            
             .onReceive(timer, perform: { _ in
                 collisionDetection()
                 score += 1
             })
+            
         }
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+//        .navigationBarHidden(true)
         
+        
+                    
+        
+        
+    }
+    
+    func goBack() {
+//        ContentView()
     }
     
     func gravity() {
