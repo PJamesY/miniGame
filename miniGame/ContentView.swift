@@ -15,8 +15,24 @@ struct ContentView: View {
                 GameBtn(title: "Finding Same Card", views: AnyView(CardFlip()))
                 GameBtn(title: "Running", views: AnyView(james()))
             }
-            
+
+
+
         }
+        
+//        ScrollView(.vertical) {
+//            VStack(spacing: 20) {
+//                ForEach(0..<10) {
+//                    Text("Item \($0)")
+//                        .foregroundColor(.white)
+//                        .font(.largeTitle)
+//                        .frame(width: 200, height: 200)
+//                        .background(Color.blue)
+//                }
+//            }
+//        }
+        
+        
     }
 }
 
