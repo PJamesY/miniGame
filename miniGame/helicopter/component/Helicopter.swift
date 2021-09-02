@@ -24,9 +24,7 @@ struct Helicopter: View {
                 HStack(spacing:0) {
                     ForEach((0...cols - 1), id: \.self) { col in
                         VStack {
-                            Rectangle()
-                                .frame(width: size, height: size)
-                                .foregroundColor(heliBlocks[row][col])
+                            Pixel(size: size, color: heliBlocks[row][col])
                         }
                         
                     }
