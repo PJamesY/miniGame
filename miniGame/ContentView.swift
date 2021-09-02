@@ -14,11 +14,13 @@ struct ContentView: View {
                 GameBtn(title: "TIC TAC TOC", views: AnyView(TicTacTocView()))
                 GameBtn(title: "Finding Same Card", views: AnyView(CardFlip()))
                 GameBtn(title: "Running", views: AnyView(james()))
+                Pixel(size: 50, color: Color.red)
             }
 
 
 
         }
+        
         
 //        ScrollView(.vertical) {
 //            VStack(spacing: 20) {

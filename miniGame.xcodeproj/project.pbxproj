@@ -22,6 +22,7 @@
 		1A93CE1426DBB89800EEF761 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A93CE1326DBB89800EEF761 /* TimerManager.swift */; };
 		1A9C83CE26DD1F6B005AD936 /* CardFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C83CD26DD1F6B005AD936 /* CardFlip.swift */; };
 		1A9D602426E10B24002E1440 /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D602326E10B24002E1440 /* Pixel.swift */; };
+		1A9D602626E10C46002E1440 /* Helicopter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D602526E10C46002E1440 /* Helicopter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		1A93CE1326DBB89800EEF761 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		1A9C83CD26DD1F6B005AD936 /* CardFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlip.swift; sourceTree = "<group>"; };
 		1A9D602326E10B24002E1440 /* Pixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
+		1A9D602526E10C46002E1440 /* Helicopter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helicopter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		1A9D602126E10AA1002E1440 /* helicopter */ = {
 			isa = PBXGroup;
 			children = (
+				1A9D602526E10C46002E1440 /* Helicopter.swift */,
 			);
 			path = helicopter;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				1A93CE1426DBB89800EEF761 /* TimerManager.swift in Sources */,
 				1A93CE0E26DB5EDC00EEF761 /* Alert.swift in Sources */,
 				1A93CE1226DBB74700EEF761 /* Helper.swift in Sources */,
+				1A9D602626E10C46002E1440 /* Helicopter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

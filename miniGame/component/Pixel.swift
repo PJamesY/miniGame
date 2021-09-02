@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Pixel {
+struct Pixel: View {
     let size: CGFloat
     let color: Color
     
