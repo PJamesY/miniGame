@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A34AF1C26E3388B00B1720B /* Tetris.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34AF1B26E3388B00B1720B /* Tetris.swift */; };
 		1A34AF1E26E3394F00B1720B /* TetrisGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34AF1D26E3394F00B1720B /* TetrisGameViewModel.swift */; };
+		1A34AF2126E33BDC00B1720B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34AF2026E33BDC00B1720B /* Color.swift */; };
 		1A7E6AFA26DA3F7200DB5D7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E6AF926DA3F7200DB5D7A /* AppDelegate.swift */; };
 		1A7E6AFC26DA3F7200DB5D7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E6AFB26DA3F7200DB5D7A /* SceneDelegate.swift */; };
 		1A7E6AFE26DA3F7200DB5D7A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E6AFD26DA3F7200DB5D7A /* ContentView.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		1A34AF1B26E3388B00B1720B /* Tetris.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tetris.swift; sourceTree = "<group>"; };
 		1A34AF1D26E3394F00B1720B /* TetrisGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameViewModel.swift; sourceTree = "<group>"; };
+		1A34AF2026E33BDC00B1720B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1A7E6AF626DA3F7200DB5D7A /* miniGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miniGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A7E6AF926DA3F7200DB5D7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A7E6AFB26DA3F7200DB5D7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 			path = tetris;
 			sourceTree = "<group>";
 		};
+		1A34AF1F26E33BB900B1720B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1A34AF2026E33BDC00B1720B /* Color.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		1A7E6AED26DA3F7200DB5D7A = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 		1A7E6AF826DA3F7200DB5D7A /* miniGame */ = {
 			isa = PBXGroup;
 			children = (
+				1A34AF1F26E33BB900B1720B /* Extension */,
 				1A34AF1A26E3387C00B1720B /* tetris */,
 				1A9D602126E10AA1002E1440 /* helicopter */,
 				1A9C83CC26DD1F55005AD936 /* cardFlip */,
@@ -252,6 +263,7 @@
 				1A93CE0E26DB5EDC00EEF761 /* Alert.swift in Sources */,
 				1A93CE1226DBB74700EEF761 /* Helper.swift in Sources */,
 				1A9D602626E10C46002E1440 /* Helicopter.swift in Sources */,
+				1A34AF2126E33BDC00B1720B /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

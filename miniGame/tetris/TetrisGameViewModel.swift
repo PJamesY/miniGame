@@ -16,7 +16,7 @@ class TetrisGameViewModel: ObservableObject {
         self.numRows = numRows
         self.numColumns = numColumns
         
-        gameBoard = Array(repeating: Array(repeating: TetrisGameSquare(color: Color.black), count: numRows), count: numColumns)
+        gameBoard = Array(repeating: Array(repeating: TetrisGameSquare(color: Color.tetrisBlack), count: numRows), count: numColumns)
     }
 }
 
