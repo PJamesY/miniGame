@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1FE19A26E3653E00B1C13E /* TetrisGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FE19926E3653E00B1C13E /* TetrisGameModel.swift */; };
 		1A34AF1C26E3388B00B1720B /* TetrisGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34AF1B26E3388B00B1720B /* TetrisGameView.swift */; };
 		1A34AF1E26E3394F00B1720B /* TetrisGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34AF1D26E3394F00B1720B /* TetrisGameViewModel.swift */; };
 		1A34AF2126E33BDC00B1720B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34AF2026E33BDC00B1720B /* Color.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A1FE19926E3653E00B1C13E /* TetrisGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameModel.swift; sourceTree = "<group>"; };
 		1A34AF1B26E3388B00B1720B /* TetrisGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameView.swift; sourceTree = "<group>"; };
 		1A34AF1D26E3394F00B1720B /* TetrisGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameViewModel.swift; sourceTree = "<group>"; };
 		1A34AF2026E33BDC00B1720B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				1A34AF1B26E3388B00B1720B /* TetrisGameView.swift */,
 				1A34AF1D26E3394F00B1720B /* TetrisGameViewModel.swift */,
+				1A1FE19926E3653E00B1C13E /* TetrisGameModel.swift */,
 			);
 			path = tetris;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				1A7E6AFC26DA3F7200DB5D7A /* SceneDelegate.swift in Sources */,
 				1A7E6AFE26DA3F7200DB5D7A /* ContentView.swift in Sources */,
 				1A9D602426E10B24002E1440 /* Pixel.swift in Sources */,
+				1A1FE19A26E3653E00B1C13E /* TetrisGameModel.swift in Sources */,
 				1A9283A326DE68D800EA4261 /* CardFlipModel.swift in Sources */,
 				1A9C83CE26DD1F6B005AD936 /* CardFlip.swift in Sources */,
 				1A7E6B1426DA7F8400DB5D7A /* PickerView.swift in Sources */,
