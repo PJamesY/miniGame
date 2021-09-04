@@ -7,14 +7,17 @@
 
 import SwiftUI
 
-struct Tetris: View {
+struct TetrisGameView: View {
+    
+    @ObservedObject var tetrisGame = TetrisGameViewModel()
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct Tetris_Previews: PreviewProvider {
+struct TetrisGameView_Previews: PreviewProvider {
     static var previews: some View {
-        Tetris()
+        TetrisGameView()
     }
 }

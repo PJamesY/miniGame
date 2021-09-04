@@ -14,7 +14,7 @@ struct ContentView: View {
                 GameBtn(title: "TIC TAC TOC", views: AnyView(TicTacTocView()))
                 GameBtn(title: "Finding Same Card", views: AnyView(CardFlip()))
                 GameBtn(title: "Running", views: AnyView(HelicopterGame()))
-                GameBtn(title: "Tetris", views: AnyView(Tetris()))
+                GameBtn(title: "Tetris", views: AnyView(TetrisGameView()))
             }
 
 
