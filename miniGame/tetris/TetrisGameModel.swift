@@ -48,6 +48,10 @@ class TetrisGameModel: ObservableObject {
         guard let currentTetromino = tetromino else {
             print("Spawning new tetromino")
             tetromino = Tetromino(origin: BlockLocation(row: 22, column: 4), blockType: .i)
+            if !isValidTetromino(testTetromino: tetromino!) {
+                print("GAME OVER")
+                pauseGame()
+            }
             return
         }
         
