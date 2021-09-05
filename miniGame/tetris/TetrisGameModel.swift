@@ -82,6 +82,11 @@ struct Tetromino {
         ]
     }
     
+    func moveBy(row: Int, column: Int) -> Tetromino {
+        let newOrigin = BlockLocation(row: origin.row + row, column: origin.column + column)
+        return Tetromino(origin: newOrigin, blockType: blockType)
+    }
+    
     
 }
 
