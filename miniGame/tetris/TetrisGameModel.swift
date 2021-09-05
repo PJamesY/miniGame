@@ -54,6 +54,20 @@ class TetrisGameModel: ObservableObject {
         // see if we need to place the block
     }
     
+    func isValidTetromino(testTetromino: Tetromino) -> Bool {
+        for block in testTetromino.blocks {
+            let row = testTetromino.origin.row + block.row
+            if row < 0 || row >= numRows { return false }
+            
+            let column = testTetromino.origin.column + block.column
+            if column < 0 || column >= numColumns { return false }
+            
+            if gameBoard[column][row] != nil { return false }
+        }
+        
+        return true
+    }
+    
     
     
     
