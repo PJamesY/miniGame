@@ -20,12 +20,13 @@ class TetrisGameModel: ObservableObject {
         self.numColumns = numColumns
         
         gameBoard = Array(repeating: Array(repeating: nil, count: numRows), count: numColumns)
-        tetromino = Tetromino(origin: BlockLocation(row: 22, column: 4), blockType: .i)
+        tetromino = Tetromino(origin: BlockLocation(row: 22, column: 2), blockType: .i)
         speed = 0.1
         resumeGame()
     }
     
     func blockClicked(row:Int, column:Int) {
+        print("row : \(row)")
         if gameBoard[column][row] == nil {
             gameBoard[column][row] = TetrisGameBlock(blockType: BlockType.allCases.randomElement()!)
         } else {
@@ -46,12 +47,19 @@ class TetrisGameModel: ObservableObject {
         // spawn a new block if we need to
         guard let currentTetromino = tetromino else {
             print("Spawning new tetromino")
-            tetromino = Tetromino(origin: BlockLocation(row: 0, column: 4), blockType: .i)
+            tetromino = Tetromino(origin: BlockLocation(row: 22, column: 4), blockType: .i)
             return
         }
+        
         // See about moving block down
+        let newTetromino = currentTetromino.moveBy(row: -1, column: 0)
+        if isValidTetromino(testTetromino: newTetromino) {
+            tetromino = newTetromino
+            return
+        }
         
         // see if we need to place the block
+        placeTetromino()
     }
     
     func isValidTetromino(testTetromino: Tetromino) -> Bool {
@@ -66,6 +74,24 @@ class TetrisGameModel: ObservableObject {
         }
         
         return true
+    }
+    
+    func placeTetromino() {
+        guard let currentTetromino = tetromino else {
+            return
+        }
+        
+        for block in currentTetromino.blocks {
+            let row = currentTetromino.origin.row + block.row
+            if row < 0 || row >= numRows { break }
+            
+            let column = currentTetromino.origin.column + block.column
+            if column < 0 || column >= numColumns { break }
+            
+            gameBoard[column][row] = TetrisGameBlock(blockType: currentTetromino.blockType)
+        }
+        
+        tetromino = nil
     }
     
     
