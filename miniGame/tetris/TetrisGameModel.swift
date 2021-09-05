@@ -22,6 +22,7 @@ class TetrisGameModel: ObservableObject {
         gameBoard = Array(repeating: Array(repeating: nil, count: numRows), count: numColumns)
         tetromino = Tetromino(origin: BlockLocation(row: 22, column: 4), blockType: .i)
         speed = 0.1
+        resumeGame()
     }
     
     func blockClicked(row:Int, column:Int) {
@@ -32,8 +33,26 @@ class TetrisGameModel: ObservableObject {
         }
     }
     
+    func resumeGame() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: speed, repeats: true, block: runEngine)
+    }
     
+    func pauseGame() {
+        timer?.invalidate()
+    }
     
+    func runEngine(timer: Timer) {
+        // spawn a new block if we need to
+        guard let currentTetromino = tetromino else {
+            print("Spawning new tetromino")
+            tetromino = Tetromino(origin: BlockLocation(row: 0, column: 4), blockType: .i)
+            return
+        }
+        // See about moving block down
+        
+        // see if we need to place the block
+    }
     
     
     
@@ -46,4 +65,27 @@ struct TetrisGameBlock {
 
 enum BlockType: CaseIterable {
     case i, t, o, j, l, s, z
+}
+
+
+
+struct Tetromino {
+    var origin: BlockLocation
+    var blockType: BlockType
+    
+    var blocks: [BlockLocation] {
+        [
+            BlockLocation(row: 0, column: -1),
+            BlockLocation(row: 0, column: 0),
+            BlockLocation(row: 0, column: 1),
+            BlockLocation(row: 0, column: 2)
+        ]
+    }
+    
+    
+}
+
+struct BlockLocation {
+    var row: Int
+    var column: Int
 }

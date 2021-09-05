@@ -70,24 +70,3 @@ struct TetrisGameSquare {
     var color: Color
 }
 
-
-struct Tetromino {
-    var origin: BlockLocation
-    var blockType: BlockType
-    
-    var blocks: [BlockLocation] {
-        [
-            BlockLocation(row: 0, column: -1),
-            BlockLocation(row: 0, column: 0),
-            BlockLocation(row: 0, column: 1),
-            BlockLocation(row: 0, column: 2)
-        ]
-    }
-    
-    
-}
-
-struct BlockLocation {
-    var row: Int
-    var column: Int
-}
