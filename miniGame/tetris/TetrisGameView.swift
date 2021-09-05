@@ -13,7 +13,6 @@ struct TetrisGameView: View {
     
     var body: some View {
         GeometryReader { (geometry: GeometryProxy) in
-//                .background(Color.red)
             drawBoard(boundingRect: geometry.size)
         }
         .navigationBarHidden(true)
@@ -50,7 +49,6 @@ struct TetrisGameView: View {
 struct TetrisGameView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TetrisGameView()
             TetrisGameView()
         }
     }

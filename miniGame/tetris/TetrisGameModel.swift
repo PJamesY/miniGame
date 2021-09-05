@@ -12,6 +12,8 @@ class TetrisGameModel: ObservableObject {
     var numColumns: Int
     @Published var gameBoard: [[TetrisGameBlock?]]
     @Published var tetromino: Tetromino?
+    var timer: Timer?
+    var speed: Double
     
     init(numRows: Int = 23, numColumns: Int = 10) {
         self.numRows = numRows
@@ -19,6 +21,7 @@ class TetrisGameModel: ObservableObject {
         
         gameBoard = Array(repeating: Array(repeating: nil, count: numRows), count: numColumns)
         tetromino = Tetromino(origin: BlockLocation(row: 22, column: 4), blockType: .i)
+        speed = 0.1
     }
     
     func blockClicked(row:Int, column:Int) {
@@ -28,6 +31,10 @@ class TetrisGameModel: ObservableObject {
             gameBoard[column][row] = nil
         }
     }
+    
+    
+    
+    
     
     
     
