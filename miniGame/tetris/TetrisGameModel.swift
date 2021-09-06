@@ -135,12 +135,47 @@ struct Tetromino {
                 BlockLocation(row: 0, column: 1),
                 BlockLocation(row: 0, column: 2)
             ]
-        default:
+        case .o:
+            return [
+                BlockLocation(row: 0, column: 0),
+                BlockLocation(row: 0, column: 1),
+                BlockLocation(row: 1, column: 1),
+                BlockLocation(row: 1, column: 0)
+            ]
+        case .t:
             return [
                 BlockLocation(row: 0, column: -1),
                 BlockLocation(row: 0, column: 0),
                 BlockLocation(row: 0, column: 1),
-                BlockLocation(row: 0, column: 2)
+                BlockLocation(row: 1, column: 0)
+            ]
+        case .j:
+            return [
+                BlockLocation(row: 1, column: -1),
+                BlockLocation(row: 0, column: -1),
+                BlockLocation(row: 0, column: 0),
+                BlockLocation(row: 0, column: 1),
+            ]
+        case .l:
+            return [
+                BlockLocation(row: 0, column: -1),
+                BlockLocation(row: 0, column: 0),
+                BlockLocation(row: 0, column: 1),
+                BlockLocation(row: 1, column: 1),
+            ]
+        case .s:
+            return [
+                BlockLocation(row: 0, column: -1),
+                BlockLocation(row: 0, column: 0),
+                BlockLocation(row: 1, column: 0),
+                BlockLocation(row: 1, column: 1)
+            ]
+        case .z:
+            return [
+                BlockLocation(row: -1, column: 0),
+                BlockLocation(row: 0, column: 0),
+                BlockLocation(row: 0, column: -1),
+                BlockLocation(row: -1, column: 1)
             ]
         }
     }
