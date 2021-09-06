@@ -55,8 +55,24 @@ class TetrisGameViewModel: ObservableObject {
             return .tetrisPurple
         case .z:
             return .tetrisRed
-        case .none:
-            return .tetrisBlack
+    }
+    
+    func getShadowColor(blockType: BlockType?) -> Color {
+        switch blockType {
+        case .i:
+            return .tetrisLightBlueShadow
+        case .j:
+            return .tetrisDarkblueShadow
+        case .l:
+            return .tetrisOrangeShadow
+        case .o:
+            return .tetrisYellowShadow
+        case .s:
+            return .tetrisGreenShadow
+        case .t:
+            return .tetrisPurpleShadow
+        case .z:
+            return .tetrisRedShadow
         }
     }
     
