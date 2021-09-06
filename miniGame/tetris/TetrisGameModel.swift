@@ -20,7 +20,7 @@ class TetrisGameModel: ObservableObject {
         var testShadow = lastShadow
         while(isValidTetromino(testTetromino: testShadow)) {
             lastShadow = testShadow
-            testShadow = lastShadow.moveBy(row: -1, column: <#T##Int#>)
+            testShadow = lastShadow.moveBy(row: -1, column: 0)
         }
         
         return lastShadow
