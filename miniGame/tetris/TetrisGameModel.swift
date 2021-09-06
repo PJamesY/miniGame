@@ -56,14 +56,29 @@ class TetrisGameModel: ObservableObject {
         }
         
         // See about moving block down
-        let newTetromino = currentTetromino.moveBy(row: -1, column: 0)
-        if isValidTetromino(testTetromino: newTetromino) {
-            tetromino = newTetromino
+        if moveTetrominoDown() {
+            print("Moving down")
             return
         }
         
         // see if we need to place the block
         placeTetromino()
+    }
+    
+    func moveTetrominoDown() -> Bool {
+        return moveTetromino(rowOffset: -1, columnOffset: 0)
+    }
+    
+    func moveTetromino(rowOffset: Int, columnOffset: Int) -> Bool {
+        guard let currentTetromino = tetromino else { return false }
+            
+        let newTetromino = currentTetromino.moveBy(row: rowOffset, column: columnOffset)
+        if isValidTetromino(testTetromino: newTetromino) {
+            tetromino = newTetromino
+            return true
+        }
+        
+        return false
     }
     
     func isValidTetromino(testTetromino: Tetromino) -> Bool {
