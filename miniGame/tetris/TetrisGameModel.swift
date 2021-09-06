@@ -21,7 +21,7 @@ class TetrisGameModel: ObservableObject {
         
         gameBoard = Array(repeating: Array(repeating: nil, count: numRows), count: numColumns)
         tetromino = Tetromino(origin: BlockLocation(row: 22, column: 2), blockType: .i)
-        speed = 0.1
+        speed = 0.5
         resumeGame()
     }
     
@@ -45,7 +45,7 @@ class TetrisGameModel: ObservableObject {
     
     func runEngine(timer: Timer) {
         // spawn a new block if we need to
-        guard let currentTetromino = tetromino else {
+        guard tetromino != nil else {
             print("Spawning new tetromino")
             tetromino = Tetromino.createNewTetromino(numRows: numRows, numColumns: numColumns)
             if !isValidTetromino(testTetromino: tetromino!) {

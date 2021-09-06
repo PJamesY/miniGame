@@ -16,6 +16,7 @@ struct TetrisGameView: View {
             drawBoard(boundingRect: geometry.size)
         }
         .navigationBarHidden(true)
+        .gesture(tetrisGame.getMoveGesture())
     }
     
     func drawBoard(boundingRect: CGSize) -> some View {
