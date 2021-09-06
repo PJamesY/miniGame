@@ -65,8 +65,20 @@ class TetrisGameModel: ObservableObject {
         placeTetromino()
     }
     
+    func dropTetromino() {
+        while(moveTetrominoDown()) { }
+    }
+    
     func moveTetrominoDown() -> Bool {
         return moveTetromino(rowOffset: -1, columnOffset: 0)
+    }
+    
+    func moveTetrominoRight() -> Bool {
+        return moveTetromino(rowOffset: 0, columnOffset: 1)
+    }
+    
+    func moveTetrominoLeft() -> Bool {
+        return moveTetromino(rowOffset: 0, columnOffset: -1)
     }
     
     func moveTetromino(rowOffset: Int, columnOffset: Int) -> Bool {
