@@ -47,7 +47,7 @@ class TetrisGameModel: ObservableObject {
         // spawn a new block if we need to
         guard let currentTetromino = tetromino else {
             print("Spawning new tetromino")
-            tetromino = Tetromino(origin: BlockLocation(row: 22, column: 4), blockType: .i)
+            tetromino = Tetromino.createNewTetromino(numRows: numRows, numColumns: numColumns)
             if !isValidTetromino(testTetromino: tetromino!) {
                 print("GAME OVER")
                 pauseGame()
@@ -143,6 +143,18 @@ struct Tetromino {
                 BlockLocation(row: 0, column: 2)
             ]
         }
+    }
+    
+    static func createNewTetromino(numRows: Int, numColumns: Int) -> Tetromino {
+        let blockType = BlockType.allCases.randomElement()!
+        
+        var maxRow = 0
+        for block in getBlocks(blockType: blockType) {
+            maxRow = max(maxRow, block.row)
+        }
+        
+        let origin = BlockLocation(row: numRows - 1 - maxRow, column: (numColumns-1)/2)
+        return Tetromino(origin: origin, blockType: blockType)
     }
     
     
