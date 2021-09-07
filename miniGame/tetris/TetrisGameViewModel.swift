@@ -14,21 +14,25 @@ class TetrisGameViewModel: ObservableObject {
     var numColumns: Int { tetrisGameModel.numColumns }
     
     var gameBoard: [[TetrisGameSquare]] {
-        var board = tetrisGameModel.gameBoard.map { $0.map(convertToSquare) }
+        let board = tetrisGameModel.gameBoard.map { $0.map(convertToSquare) }
+//        var board = tetrisGameModel.gameBoard.map { $0.map(convertToSquare) }
+        
+        
+        var currentBoard = drawNextTetrominoBoard(board: board)
         
         if let shadow = tetrisGameModel.shadow {
             for blockLocation in shadow.blocks {
-                board[blockLocation.column + shadow.origin.column][blockLocation.row + shadow.origin.row] = TetrisGameSquare(color: getShadowColor(blockType: shadow.blockType))
+                currentBoard[blockLocation.column + shadow.origin.column][blockLocation.row + shadow.origin.row] = TetrisGameSquare(color: getShadowColor(blockType: shadow.blockType))
             }
         }
         
         if let tetromino = tetrisGameModel.tetromino {
             for blockLocation in tetromino.blocks {
-                board[blockLocation.column + tetromino.origin.column][blockLocation.row + tetromino.origin.row] = TetrisGameSquare(color: getColor(blockType: tetromino.blockType))
+                currentBoard[blockLocation.column + tetromino.origin.column][blockLocation.row + tetromino.origin.row] = TetrisGameSquare(color: getColor(blockType: tetromino.blockType))
             }
         }
         
-        return board
+        return currentBoard
     }
     
     var anyCancellable: AnyCancellable?
@@ -39,6 +43,18 @@ class TetrisGameViewModel: ObservableObject {
         anyCancellable = tetrisGameModel.objectWillChange.sink {
             self.objectWillChange.send()
         }
+    }
+    
+    func drawNextTetrominoBoard(board: [[TetrisGameSquare]]) -> [[TetrisGameSquare]] {
+        
+        var currentBoard = board
+        for row in 1...5 {
+            for col in 1...5 {
+                currentBoard[tetrisGameModel.numColumns-col][tetrisGameModel.numRows-row] = TetrisGameSquare(color: Color.nextTetrisBoard)
+            }
+        }
+        
+        return currentBoard
     }
     
     

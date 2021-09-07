@@ -26,7 +26,7 @@ class TetrisGameModel: ObservableObject {
         return lastShadow
     }
     
-    init(numRows: Int = 23, numColumns: Int = 10) {
+    init(numRows: Int = 30, numColumns: Int = 15) {
         self.numRows = numRows
         self.numColumns = numColumns
         

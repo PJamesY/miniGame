@@ -24,5 +24,7 @@ extension Color {
     public static let tetrisOrangeShadow = Color(red: 60/255, green: 31/255, blue: 8/255)
     public static let tetrisRedShadow = Color(red: 58/255, green: 10/255, blue: 16/255)
     public static let tetrisPurpleShadow = Color(red: 41/255, green: 3/255, blue: 60/255)
+    
+    public static let nextTetrisBoard = Color(red: 0/255, green: 0/255, blue: 0/255, opacity: 0.6)
 }
 
