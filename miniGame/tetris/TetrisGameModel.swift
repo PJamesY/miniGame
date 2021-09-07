@@ -31,7 +31,7 @@ class TetrisGameModel: ObservableObject {
         self.numColumns = numColumns
         
         gameBoard = Array(repeating: Array(repeating: nil, count: numRows), count: numColumns)
-        tetromino = Tetromino(origin: BlockLocation(row: 22, column: 2), blockType: .i)
+//        tetromino = Tetromino(origin: BlockLocation(row: 22, column: 2), blockType: .i)
         speed = 0.5
         resumeGame()
     }
@@ -110,6 +110,17 @@ class TetrisGameModel: ObservableObject {
         return false
     }
     
+    func rotateTetromino(clockWise: Bool)  {
+        guard let currentTetromino = tetromino else { return }
+        
+        let newTetromino = currentTetromino.rotate(clockWise: clockWise)
+        if isValidTetromino(testTetromino: newTetromino) {
+            tetromino = newTetromino
+        }
+        
+        
+    }
+    
     func isValidTetromino(testTetromino: Tetromino) -> Bool {
         for block in testTetromino.blocks {
             let row = testTetromino.origin.row + block.row
@@ -184,14 +195,19 @@ enum BlockType: CaseIterable {
 struct Tetromino {
     var origin: BlockLocation
     var blockType: BlockType
+    var rotation: Int
     
     var blocks: [BlockLocation] {
-        return Tetromino.getBlocks(blockType: blockType)
+        return Tetromino.getBlocks(blockType: blockType, rotation: rotation)
     }
     
     func moveBy(row: Int, column: Int) -> Tetromino {
         let newOrigin = BlockLocation(row: origin.row + row, column: origin.column + column)
-        return Tetromino(origin: newOrigin, blockType: blockType)
+        return Tetromino(origin: newOrigin, blockType: blockType, rotation: rotation)
+    }
+    
+    func rotate(clockWise: Bool) -> Tetromino {
+        return Tetromino(origin: origin, blockType: blockType, rotation: rotation + (clockWise ? 1 : -1))
     }
     
     static func getBlocks(blockType: BlockType, rotation: Int = 0) -> [BlockLocation] {
@@ -249,7 +265,7 @@ struct Tetromino {
         }
         
         let origin = BlockLocation(row: numRows - 1 - maxRow, column: (numColumns-1)/2)
-        return Tetromino(origin: origin, blockType: blockType)
+        return Tetromino(origin: origin, blockType: blockType, rotation: 0)
     }
     
     
