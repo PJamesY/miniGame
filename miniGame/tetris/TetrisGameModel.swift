@@ -36,15 +36,6 @@ class TetrisGameModel: ObservableObject {
         resumeGame()
     }
     
-    func blockClicked(row:Int, column:Int) {
-        print("row : \(row)")
-        if gameBoard[column][row] == nil {
-            gameBoard[column][row] = TetrisGameBlock(blockType: BlockType.allCases.randomElement()!)
-        } else {
-            gameBoard[column][row] = nil
-        }
-    }
-    
     func resumeGame() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: speed, repeats: true, block: runEngine)
