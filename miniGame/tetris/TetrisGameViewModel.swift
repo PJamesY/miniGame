@@ -35,7 +35,7 @@ class TetrisGameViewModel: ObservableObject {
         
         if let nextTetromino = tetrisGameModel.nextTetromino {
             for blockLocation in nextTetromino.blocks {
-                currentBoard[blockLocation.column + nextTetromino.origin.column][blockLocation.row + nextTetromino.origin.row] = TetrisGameSquare(color: getColor(blockType: nextTetromino.blockType))
+                currentBoard[blockLocation.column + tetrisGameModel.numColumns-3][blockLocation.row + tetrisGameModel.numRows-3] = TetrisGameSquare(color: getColor(blockType: nextTetromino.blockType))
             }
         }
         
@@ -48,7 +48,7 @@ class TetrisGameViewModel: ObservableObject {
     }
     
     func pause() {
-        print("PAUSE")
+        
         started = false
         tetrisGameModel.pauseGame()
     }
