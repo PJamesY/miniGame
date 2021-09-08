@@ -77,6 +77,7 @@ struct HelicopterGame: View {
             })
             
             .onReceive(timer, perform: { _ in
+                print("JJJJJJJ")
                 collisionDetection()
                 score += 1
             })

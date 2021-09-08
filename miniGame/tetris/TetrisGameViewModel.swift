@@ -12,6 +12,7 @@ class TetrisGameViewModel: ObservableObject {
     @Published var tetrisGameModel = TetrisGameModel()
     var numRows: Int { tetrisGameModel.numRows }
     var numColumns: Int { tetrisGameModel.numColumns }
+    var started: Bool = false
     
     var gameBoard: [[TetrisGameSquare]] {
         let board = tetrisGameModel.gameBoard.map { $0.map(convertToSquare) }
@@ -39,6 +40,17 @@ class TetrisGameViewModel: ObservableObject {
         }
         
         return currentBoard
+    }
+    
+    func resume() {
+        started = true
+        tetrisGameModel.resumeGame()
+    }
+    
+    func pause() {
+        print("PAUSE")
+        started = false
+        tetrisGameModel.pauseGame()
     }
     
     var anyCancellable: AnyCancellable?

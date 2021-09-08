@@ -34,7 +34,7 @@ class TetrisGameModel: ObservableObject {
         gameBoard = Array(repeating: Array(repeating: nil, count: numRows), count: numColumns)
 //        tetromino = Tetromino(origin: BlockLocation(row: 22, column: 2), blockType: .i)
         speed = 0.5
-        resumeGame()
+//        resumeGame()
     }
     
     func resumeGame() {

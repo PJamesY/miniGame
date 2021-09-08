@@ -10,15 +10,44 @@ import SwiftUI
 struct TetrisGameView: View {
     
     @ObservedObject var tetrisGame = TetrisGameViewModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var btnBack : some View { Button(action: {
+        self.presentationMode.wrappedValue.dismiss()
+        print("BACK!!")
+        tetrisGame.pause()
+    }) {
+        
+        
+        Text("Go back")
+        
+    }
+    }
+    
     
     var body: some View {
-        GeometryReader { (geometry: GeometryProxy) in
-//            Text("SCroe")
-            drawBoard(boundingRect: geometry.size)
+        
+        ZStack {
+            GeometryReader { (geometry: GeometryProxy) in
+                //            Text("SCroe")
+                drawBoard(boundingRect: geometry.size)
+            }
+            //        .navigationBarHidden(true)
+            .gesture(tetrisGame.getMoveGesture())
+            .gesture(tetrisGame.getRotateGesture())
+            //        .gesture(tetrisGame.res)
+            if (!tetrisGame.started) {
+                Button {
+                    tetrisGame.resume()
+                } label: {
+                    Text("START")
+                }
+            } 
+            
         }
-//        .navigationBarHidden(true)
-        .gesture(tetrisGame.getMoveGesture())
-        .gesture(tetrisGame.getRotateGesture())
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: btnBack)
+        
     }
     
     func drawBoard(boundingRect: CGSize) -> some View {
@@ -26,7 +55,7 @@ struct TetrisGameView: View {
         let rows = tetrisGame.numRows
         let blockSize = min(boundingRect.width/CGFloat(columns), boundingRect.height/CGFloat(rows))
         let xoffset = (boundingRect.width - blockSize*CGFloat(columns)) / 2
-//        let yoffset = (boundingRect.height - blockSize*CGFloat(rows)) / 2
+        //        let yoffset = (boundingRect.height - blockSize*CGFloat(rows)) / 2
         
         return ForEach(0...columns-1, id:\.self) { col in
             ForEach(0...rows-1, id:\.self) { row in
@@ -43,7 +72,7 @@ struct TetrisGameView: View {
                 
             }
         }
-//        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        //        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
     }
     
 }
