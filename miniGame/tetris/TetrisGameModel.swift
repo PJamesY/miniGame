@@ -12,6 +12,7 @@ class TetrisGameModel: ObservableObject {
     var numColumns: Int
     @Published var gameBoard: [[TetrisGameBlock?]]
     @Published var tetromino: Tetromino?
+    @Published var nextTetromino: Tetromino?
     var timer: Timer?
     var speed: Double
     
@@ -38,6 +39,7 @@ class TetrisGameModel: ObservableObject {
     
     func resumeGame() {
         timer?.invalidate()
+        nextTetromino = Tetromino.createNewTetromino(numRows: numRows, numColumns: numColumns)
         timer = Timer.scheduledTimer(withTimeInterval: speed, repeats: true, block: runEngine)
     }
     
@@ -55,7 +57,8 @@ class TetrisGameModel: ObservableObject {
         // spawn a new block if we need to
         guard tetromino != nil else {
             print("Spawning new tetromino")
-            tetromino = Tetromino.createNewTetromino(numRows: numRows, numColumns: numColumns)
+            tetromino = nextTetromino
+            nextTetromino = Tetromino.createNewTetromino(numRows: numRows, numColumns: numColumns)
             if !isValidTetromino(testTetromino: tetromino!) {
                 print("GAME OVER")
                 pauseGame()

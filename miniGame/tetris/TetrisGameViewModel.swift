@@ -32,6 +32,12 @@ class TetrisGameViewModel: ObservableObject {
             }
         }
         
+        if let nextTetromino = tetrisGameModel.nextTetromino {
+            for blockLocation in nextTetromino.blocks {
+                currentBoard[blockLocation.column + nextTetromino.origin.column][blockLocation.row + nextTetromino.origin.row] = TetrisGameSquare(color: getColor(blockType: nextTetromino.blockType))
+            }
+        }
+        
         return currentBoard
     }
     
