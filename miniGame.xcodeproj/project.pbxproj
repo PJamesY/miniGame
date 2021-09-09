@@ -29,6 +29,7 @@
 		1A9D602626E10C46002E1440 /* Helicopter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D602526E10C46002E1440 /* Helicopter.swift */; };
 		1A9D602826E10EBD002E1440 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D602726E10EBD002E1440 /* Obstacle.swift */; };
 		1A9D602A26E10F07002E1440 /* HelicopterGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D602926E10F07002E1440 /* HelicopterGame.swift */; };
+		1ACC292F26E8EDF2008E4406 /* TicTacTocGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC292E26E8EDF2008E4406 /* TicTacTocGameModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		1A9D602526E10C46002E1440 /* Helicopter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helicopter.swift; sourceTree = "<group>"; };
 		1A9D602726E10EBD002E1440 /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
 		1A9D602926E10F07002E1440 /* HelicopterGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelicopterGame.swift; sourceTree = "<group>"; };
+		1ACC292E26E8EDF2008E4406 /* TicTacTocGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacTocGameModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				1A7E6B0D26DA74D000DB5D7A /* TicTacTocView.swift */,
 				1A93CE0B26DB5CAF00EEF761 /* GameViewModel.swift */,
+				1ACC292E26E8EDF2008E4406 /* TicTacTocGameModel.swift */,
 			);
 			path = tictactoc;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ACC292F26E8EDF2008E4406 /* TicTacTocGameModel.swift in Sources */,
 				1A9D602826E10EBD002E1440 /* Obstacle.swift in Sources */,
 				1A93CE0C26DB5CAF00EEF761 /* GameViewModel.swift in Sources */,
 				1A34AF1C26E3388B00B1720B /* TetrisGameView.swift in Sources */,
