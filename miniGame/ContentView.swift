@@ -11,10 +11,10 @@ struct ContentView: View {
     var body: some View {
         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
             VStack(spacing: 20) {
-                GameBtn(title: "TIC TAC TOC", views: AnyView(TicTacTocView()))
-                GameBtn(title: "Finding Same Card", views: AnyView(CardFlip()))
-                GameBtn(title: "Running", views: AnyView(HelicopterGame()))
-                GameBtn(title: "Tetris", views: AnyView(TetrisGameView()))
+                GameBtn(title: "TIC TAC TOC", views: AnyView(TicTacTocView()), color: Color.red)
+                GameBtn(title: "Finding Same Card", views: AnyView(CardFlip()), color: Color.blue)
+                GameBtn(title: "Running", views: AnyView(HelicopterGame()), color: Color.green)
+                GameBtn(title: "Tetris", views: AnyView(TetrisGameView()), color: Color.yellow)
             }
         }
 
@@ -30,6 +30,7 @@ struct ContentView_Previews: PreviewProvider {
 struct GameBtn: View {
     var title: String
     var views: AnyView
+    var color: Color
 
     var body: some View {
         NavigationLink(
@@ -37,7 +38,7 @@ struct GameBtn: View {
             label: {
                 Text(title)
                     .frame(width: 300, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .background(Color.orange)
+                    .background(color)
                     .foregroundColor(.white)
                     .cornerRadius(10)
             })
