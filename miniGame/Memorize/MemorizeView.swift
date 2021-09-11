@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MemorizeView: View {
-    let viewModel: EmojiMemoryGame
+    @ObservedObject var viewModel: EmojiMemoryGame = EmojiMemoryGame()
     
     var body: some View {
         ScrollView {
@@ -16,9 +16,14 @@ struct MemorizeView: View {
                 ForEach(viewModel.cards) { card in
                     CardView(card: card)
                         .aspectRatio(2/3, contentMode: .fit)
+                        .onTapGesture {
+                            viewModel.choose(card)
+                        }
                 }
             }
         }
+        .foregroundColor(.red)
+        .padding(.horizontal)
     }
 }
 
@@ -36,18 +41,15 @@ struct CardView: View {
                 shape.fill()
             }
         }
-        .onTapGesture {
-            print("Tapped!")
-        }
     }
 }
  
 struct MemorizeView_Previews: PreviewProvider {
     static var previews: some View {
-        let game = EmojiMemoryGame()
-        MemorizeView(viewModel: game)
+//        let game = EmojiMemoryGame()
+        MemorizeView()
             .preferredColorScheme(.light)
-        MemorizeView(viewModel: game)
+        MemorizeView()
             .preferredColorScheme(.dark)
     }
 }

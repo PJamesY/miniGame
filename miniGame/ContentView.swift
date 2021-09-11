@@ -9,14 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
-            VStack(spacing: 20) {
-                GameBtn(title: "TIC TAC TOC", views: AnyView(TicTacTocView()), color: Color.red)
-                GameBtn(title: "Finding Same Card", views: AnyView(CardFlip()), color: Color.blue)
-                GameBtn(title: "Running", views: AnyView(HelicopterGame()), color: Color.green)
-                GameBtn(title: "Tetris", views: AnyView(TetrisGameView()), color: Color.yellow)
-            }
+//        Button {
+        NavigationView {
+            NavigationLink("Word", destination:MemorizeView())
         }
+        
+//        } label: {
+//            Text("Please")
+//        }
+//        NavigationLink(
+//            destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+//            label: {
+//                /*@START_MENU_TOKEN@*/Text("Navigate")/*@END_MENU_TOKEN@*/
+//            })
+//        ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
+//            VStack(spacing: 20) {
+//                Button {
+//
+//                } label: {
+//                    Text("Please")
+//                }
+//                GameBtn(title: "TIC TAC TOC", views: AnyView(TicTacTocView()), color: Color.red)
+//                GameBtn(title: "Finding Same Card", views: AnyView(CardFlip()), color: Color.blue)
+//                GameBtn(title: "Running", views: AnyView(HelicopterGame()), color: Color.green)
+//                GameBtn(title: "Tetris", views: AnyView(TetrisGameView()), color: Color.yellow)
+//                GameBtn(title: "Memorize", views: AnyView(MemorizeView()), color: Color.black)
+//            }
+//        }
 
     }
 }
@@ -37,7 +56,7 @@ struct GameBtn: View {
             destination: views,
             label: {
                 Text(title)
-                    .frame(width: 300, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                    .frame(width: 200, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(color)
                     .foregroundColor(.white)
                     .cornerRadius(10)
