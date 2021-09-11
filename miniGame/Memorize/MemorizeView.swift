@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct MemorizeView: View {
-    @ObservedObject var viewModel: EmojiMemoryGame = EmojiMemoryGame()
+    @ObservedObject var game: EmojiMemoryGame = EmojiMemoryGame()
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
-                ForEach(viewModel.cards) { card in
+                ForEach(game.cards) { card in
                     CardView(card: card)
                         .aspectRatio(2/3, contentMode: .fit)
                         .onTapGesture {
-                            viewModel.choose(card)
+                            game.choose(card)
                         }
                 }
             }
@@ -28,7 +28,11 @@ struct MemorizeView: View {
 }
 
 struct CardView: View {
-    let card: MemoryGame<String>.Card
+    let card: EmojiMemoryGame.Card
+//
+//    init(_ card: EmojiMemoryGame.Card) {
+//        self.card = card
+//    }
     
     var body: some View {
         ZStack {
