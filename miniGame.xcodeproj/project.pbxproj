@@ -12,6 +12,7 @@
 		1A34AF1E26E3394F00B1720B /* TetrisGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34AF1D26E3394F00B1720B /* TetrisGameViewModel.swift */; };
 		1A34AF2126E33BDC00B1720B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34AF2026E33BDC00B1720B /* Color.swift */; };
 		1A7DEBF326EC2B1A009E74DA /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7DEBF226EC2B1A009E74DA /* MemoryGame.swift */; };
+		1A7DEBF526EC30F1009E74DA /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7DEBF426EC30F1009E74DA /* EmojiMemoryGame.swift */; };
 		1A7E6AFA26DA3F7200DB5D7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E6AF926DA3F7200DB5D7A /* AppDelegate.swift */; };
 		1A7E6AFC26DA3F7200DB5D7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E6AFB26DA3F7200DB5D7A /* SceneDelegate.swift */; };
 		1A7E6AFE26DA3F7200DB5D7A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E6AFD26DA3F7200DB5D7A /* ContentView.swift */; };
@@ -39,6 +40,7 @@
 		1A34AF1D26E3394F00B1720B /* TetrisGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameViewModel.swift; sourceTree = "<group>"; };
 		1A34AF2026E33BDC00B1720B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1A7DEBF226EC2B1A009E74DA /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
+		1A7DEBF426EC30F1009E74DA /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		1A7E6AF626DA3F7200DB5D7A /* miniGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miniGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A7E6AF926DA3F7200DB5D7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A7E6AFB26DA3F7200DB5D7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				1A7DEBF226EC2B1A009E74DA /* MemoryGame.swift */,
+				1A7DEBF426EC30F1009E74DA /* EmojiMemoryGame.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				1A93CE1226DBB74700EEF761 /* Helper.swift in Sources */,
 				1A9D602626E10C46002E1440 /* Helicopter.swift in Sources */,
 				1A34AF2126E33BDC00B1720B /* Color.swift in Sources */,
+				1A7DEBF526EC30F1009E74DA /* EmojiMemoryGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
