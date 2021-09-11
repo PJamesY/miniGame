@@ -8,6 +8,7 @@
 import Foundation
 
 struct MemoryGame<CardContent> {
+    private(set) var cards: Array<Card>
     
     struct Card: Identifiable {
         var isFaceUp: Bool = true
