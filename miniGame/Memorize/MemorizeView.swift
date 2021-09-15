@@ -11,11 +11,24 @@ struct MemorizeView: View {
     @ObservedObject var game: EmojiMemoryGame = EmojiMemoryGame()
     
     var body: some View {
+        VStack {
+            gameBody
+            shuffle
+        }
+        .padding(.horizontal)
+    }
+    
+    var gameBody: some View {
         AspectVGrid(items: game.cards, aspectRatio: 2/3) {card in
             cardView(for: card)
         }
         .foregroundColor(.red)
-        .padding(.horizontal)
+    }
+    
+    var shuffle: some View {
+        Button("Shuffle") {
+            game.shuffle()
+        }
     }
     
     @ViewBuilder

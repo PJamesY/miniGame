@@ -35,7 +35,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
         }
-        cards.shuffle()
+//        cards.shuffle()
     }
     
     
