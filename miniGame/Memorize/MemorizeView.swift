@@ -54,16 +54,16 @@ struct CardView: View {
         min(size.width, size.height) / (DrawingConstants.fontSize / DrawingConstants.fontScale)
     }
     
-
+    
     private struct DrawingConstants {
         static let fontSize: CGFloat = 32
         static let fontScale: CGFloat = 0.7
     }
 }
- 
+
 struct MemorizeView_Previews: PreviewProvider {
     static var previews: some View {
-//        let game = EmojiMemoryGame()
+        //        let game = EmojiMemoryGame()
         MemorizeView()
             .preferredColorScheme(.light)
         MemorizeView()
