@@ -34,7 +34,7 @@ struct MemorizeView: View {
     @ViewBuilder
     private func cardView(for card: EmojiMemoryGame.Card) -> some View {
         if card.isMatched && !card.isFaceUp {
-            Rectangle().opacity(0)
+            Color.clear
         } else {
             CardView(card: card)
                 .padding(4)
