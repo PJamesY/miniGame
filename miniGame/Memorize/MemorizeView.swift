@@ -13,6 +13,7 @@ struct MemorizeView: View {
     var body: some View {
         VStack {
             gameBody
+            deckBody
             shuffle
         }
         .padding(.horizontal)
@@ -33,13 +34,24 @@ struct MemorizeView: View {
             cardView(for: card)
         }
         .onAppear {
-            withAnimation {
+            withAnimation(.easeInOut(duration: 5)) {
                 for card in game.cards {
                     deal(card)
                 }
             }
         }
         .foregroundColor(.blue)
+    }
+    
+    var deckBody: some View {
+        ZStack {
+            ForEach(game.cards.filter(isUndealt)) { card in
+                CardView(card: card)
+                    .transition(AnyTransition.asymmetric(insertion: .opacity, removal: .scale))
+            }
+        }
+        .frame(width: CardConstants.undealtWidth, height: CardConstants.undealtHeight)
+        .foregroundColor(CardConstants.color)
     }
     
     var shuffle: some View {
@@ -51,6 +63,13 @@ struct MemorizeView: View {
         }
     }
     
+    private struct CardConstants {
+        static let color = Color.red
+        static let aspectRatio: CGFloat = 2/3
+        static let undealtHeight: CGFloat = 90
+        static let undealtWidth = undealtHeight * aspectRatio
+    }
+    
     @ViewBuilder
     private func cardView(for card: EmojiMemoryGame.Card) -> some View {
         if isUndealt(card) || (card.isMatched && !card.isFaceUp) {
@@ -58,7 +77,7 @@ struct MemorizeView: View {
         } else {
             CardView(card: card)
                 .padding(4)
-                .transition(AnyTransition.asymmetric(insertion: .scale, removal: .opacity).animation(.easeInOut(duration: 2)))
+                .transition(AnyTransition.asymmetric(insertion: .scale, removal: .opacity))
                 .onTapGesture {
                     withAnimation {
                         game.choose(card)
