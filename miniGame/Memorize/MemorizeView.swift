@@ -31,6 +31,14 @@ struct MemorizeView: View {
         !dealt.contains(card.id)
     }
     
+    private func dealAnimation(for card: EmojiMemoryGame.Card) -> Animation {
+        var delay = 0.0
+        if let index = game.cards.firstIndex(where: {$0.id == card.id}) {
+            delay = Double(index) * (CardConstants.totalDealDuration / Double(game.cards.count))
+        }
+        return Animation.easeInOut(duration: CardConstants.dealDuration).delay(delay)
+    }
+    
     var gameBody: some View {
         AspectVGrid(items: game.cards, aspectRatio: 2/3) {card in
             cardView(for: card)
@@ -50,8 +58,9 @@ struct MemorizeView: View {
         .frame(width: CardConstants.undealtWidth, height: CardConstants.undealtHeight)
         .foregroundColor(CardConstants.color)
         .onTapGesture {
-            withAnimation(.easeInOut(duration: 5)) {
-                for card in game.cards {
+            // "deal" cards
+            for card in game.cards {
+                withAnimation(dealAnimation(for: card)) {
                     deal(card)
                 }
             }
