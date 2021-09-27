@@ -21,6 +21,8 @@ struct MemorizeView: View {
         .padding(.horizontal)
     }
     
+    // MARK: -Animation function
+    
     @State private var dealt = Set<Int>()
     
     private func deal(_ card: EmojiMemoryGame.Card) {
@@ -53,6 +55,7 @@ struct MemorizeView: View {
                 CardView(card: card)
                     .matchedGeometryEffect(id: card.id, in: dealingNameSpace)
                     .transition(AnyTransition.asymmetric(insertion: .opacity, removal: .identity))
+                    .zIndex(zIndex(of: card))
             }
         }
         .frame(width: CardConstants.undealtWidth, height: CardConstants.undealtHeight)
@@ -85,6 +88,10 @@ struct MemorizeView: View {
         static let undealtWidth = undealtHeight * aspectRatio
     }
     
+    private func zIndex(of card: EmojiMemoryGame.Card) -> Double {
+        -Double(game.cards.firstIndex(where: {$0.id == card.id}) ?? 0)
+    }
+    
     @ViewBuilder
     private func cardView(for card: EmojiMemoryGame.Card) -> some View {
         if isUndealt(card) || (card.isMatched && !card.isFaceUp) {
@@ -94,6 +101,7 @@ struct MemorizeView: View {
                 .matchedGeometryEffect(id: card.id, in: dealingNameSpace)
                 .padding(4)
                 .transition(AnyTransition.asymmetric(insertion: .identity, removal: .scale))
+                .zIndex(zIndex(of: card))
                 .onTapGesture {
                     withAnimation {
                         game.choose(card)
