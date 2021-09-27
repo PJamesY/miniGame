@@ -16,7 +16,13 @@ struct MemorizeView: View {
         VStack {
             gameBody
             deckBody
-            shuffle
+            HStack {
+                restart
+                Spacer()
+                shuffle
+            }
+            .padding(.horizontal)
+            
         }
         .padding(.horizontal)
     }
@@ -76,6 +82,15 @@ struct MemorizeView: View {
                 game.shuffle()
             }
             
+        }
+    }
+    
+    var restart: some View {
+        Button("Restart") {
+            withAnimation {
+                dealt = []
+                game.restart()
+            }
         }
     }
     
