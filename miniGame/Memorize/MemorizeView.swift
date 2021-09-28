@@ -13,18 +13,22 @@ struct MemorizeView: View {
     @Namespace private var dealingNameSpace
     
     var body: some View {
-        VStack {
-            gameBody
-            deckBody
-            HStack {
-                restart
-                Spacer()
-                shuffle
+        ZStack {
+            VStack {
+                gameBody
+                
+                HStack {
+                    restart
+                    Spacer()
+                    shuffle
+                }
+                .padding(.horizontal)
+                
             }
-            .padding(.horizontal)
-            
+            deckBody
         }
-        .padding(.horizontal)
+        .padding()
+        
     }
     
     // MARK: -Animation function
