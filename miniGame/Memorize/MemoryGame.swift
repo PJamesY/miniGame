@@ -65,6 +65,22 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     // can be zero which means "no bonus available" for this card
     var bonusTimeLimit: TimeInterval = 6
+    
+    // how long this card has ever been face up
+    private var faceUpTime: TimeInterval {
+        if let lastFaceUpDate = self.lastFaceUpDate {
+            return pastFaceUpTime + Date().timeIntervalSince(lastFaceUpDate)
+        } else {
+            return pastFaceUpTime
+        }
+    }
+    
+    // the last time this card was turned face up (and is still face up)
+    var lastFaceUpDate: Date?
+    // the accumulated time this card has been face up in the past
+    // (i.e. not including the current time it's been face up if it is currently so)
+    var pastFaceUpTime: TimeInterval = 0
+    
 }
 
 extension Array {
