@@ -56,6 +56,15 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         let content: CardContent // never changed
         let id: Int // never changed
     }
+    
+    // MARK: - Bonus Time
+    
+    // this could give matching bonus points
+    // if the user matches the card
+    // before a certain amount of time passess during which the card is face up
+    
+    // can be zero which means "no bonus available" for this card
+    var bonusTimeLimit: TimeInterval = 6
 }
 
 extension Array {

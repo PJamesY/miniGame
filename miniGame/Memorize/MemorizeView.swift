@@ -13,7 +13,7 @@ struct MemorizeView: View {
     @Namespace private var dealingNameSpace
     
     var body: some View {
-        ZStack(alignment:.bottom) {
+        ZStack(alignment: .bottom) {
             VStack {
                 gameBody
                 HStack {
