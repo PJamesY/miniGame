@@ -13,10 +13,9 @@ struct MemorizeView: View {
     @Namespace private var dealingNameSpace
     
     var body: some View {
-        ZStack {
+        ZStack(alignment:.bottom) {
             VStack {
                 gameBody
-                
                 HStack {
                     restart
                     Spacer()
