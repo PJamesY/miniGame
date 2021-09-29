@@ -81,6 +81,11 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     // (i.e. not including the current time it's been face up if it is currently so)
     var pastFaceUpTime: TimeInterval = 0
     
+    // how much time left before the bonus opportunity runs out
+    var bonusTimeRemaining: TimeInterval {
+        max(0, bonusTimeLimit - faceUpTime)
+    }
+    
 }
 
 extension Array {
