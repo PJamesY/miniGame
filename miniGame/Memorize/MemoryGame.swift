@@ -88,6 +88,10 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         var hasEarnedBonus: Bool {
             isMatched && bonusTimeRemaining > 0
         }
+        // whether we are currently face up, unmatched and have not yet used up the bonus window
+        var isConsumingBonusTime: Bool {
+            isFaceUp && !isMatched && bonusTimeRemaining > 0
+        }
     }
     
     
