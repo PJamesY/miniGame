@@ -55,7 +55,7 @@ struct MemorizeView: View {
             cardView(for: card)
         }
         
-        .foregroundColor(.blue)
+        .foregroundColor(.red)
     }
     
     var deckBody: some View {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A14F42E2705ED3B00276689 /* EmojiArtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F42D2705ED3B00276689 /* EmojiArtModel.swift */; };
 		1A1FE19A26E3653E00B1C13E /* TetrisGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FE19926E3653E00B1C13E /* TetrisGameModel.swift */; };
 		1A34AF1C26E3388B00B1720B /* TetrisGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34AF1B26E3388B00B1720B /* TetrisGameView.swift */; };
 		1A34AF1E26E3394F00B1720B /* TetrisGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34AF1D26E3394F00B1720B /* TetrisGameViewModel.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A14F42D2705ED3B00276689 /* EmojiArtModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtModel.swift; sourceTree = "<group>"; };
 		1A1FE19926E3653E00B1C13E /* TetrisGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameModel.swift; sourceTree = "<group>"; };
 		1A34AF1B26E3388B00B1720B /* TetrisGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameView.swift; sourceTree = "<group>"; };
 		1A34AF1D26E3394F00B1720B /* TetrisGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameViewModel.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A14F42C2705ED1B00276689 /* EmojiArt */ = {
+			isa = PBXGroup;
+			children = (
+				1A14F42D2705ED3B00276689 /* EmojiArtModel.swift */,
+			);
+			path = EmojiArt;
+			sourceTree = "<group>";
+		};
 		1A34AF1A26E3387C00B1720B /* tetris */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +143,7 @@
 		1A7E6AF826DA3F7200DB5D7A /* miniGame */ = {
 			isa = PBXGroup;
 			children = (
+				1A14F42C2705ED1B00276689 /* EmojiArt */,
 				1A7DEBF126EC2AF5009E74DA /* Memorize */,
 				1A34AF1F26E33BB900B1720B /* Extension */,
 				1A34AF1A26E3387C00B1720B /* tetris */,
@@ -286,6 +297,7 @@
 				1A9D602A26E10F07002E1440 /* HelicopterGame.swift in Sources */,
 				1A4E207F26EF7DB8003F24D9 /* Cardify.swift in Sources */,
 				1A7E6AFA26DA3F7200DB5D7A /* AppDelegate.swift in Sources */,
+				1A14F42E2705ED3B00276689 /* EmojiArtModel.swift in Sources */,
 				1A7DEBF326EC2B1A009E74DA /* MemoryGame.swift in Sources */,
 				1A8713C126EDE2E5002FF6EB /* AspectVGrid.swift in Sources */,
 				1A34AF1E26E3394F00B1720B /* TetrisGameViewModel.swift in Sources */,
