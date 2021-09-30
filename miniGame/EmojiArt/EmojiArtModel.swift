@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+struct EmojiArtModel {
+    var background: Background
+    var emojis = [Emoji]()
+    
+    struct Emoji {
+        let text: String
+    }
+    
+    enum Background {
+        case blank
+        case url
+        case imageData
+    }
+}
