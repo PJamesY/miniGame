@@ -13,6 +13,9 @@ struct EmojiArtModel {
     
     struct Emoji {
         let text: String
+        var x: Int
+        var y: Int
+        var size: Int
     }
     
     enum Background {
