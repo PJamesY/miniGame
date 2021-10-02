@@ -18,6 +18,10 @@ struct EmojiArtModel {
         var size: Int
     }
     
+    mutating func addEmoji(_ text: String, at location: (x: Int, y: Int), size: Int) {
+        emojis.append(Emoji(text: text, x: location.x, y: location.y, size: size))
+    }
+    
     enum Background {
         case blank
         case url
