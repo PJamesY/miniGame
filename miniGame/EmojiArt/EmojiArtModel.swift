@@ -36,9 +36,5 @@ struct EmojiArtModel {
         emojis.append(Emoji(text: text, x: location.x, y: location.y, size: size, id: uniqueEmojiId))
     }
     
-    enum Background {
-        case blank
-        case url
-        case imageData
-    }
+    
 }
