@@ -13,4 +13,7 @@ class EmojiArtDocument: ObservableObject {
     init() {
         emojiArt = EmojiArtModel()
     }
+    
+    var emojis: [EmojiArtModel.Emoji] { emojiArt.emojis }
+    var background: EmojiArtModel.Background { emojiArt.background }
 }
