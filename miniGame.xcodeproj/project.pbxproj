@@ -32,6 +32,7 @@
 		1A93CE0E26DB5EDC00EEF761 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A93CE0D26DB5EDC00EEF761 /* Alert.swift */; };
 		1A93CE1226DBB74700EEF761 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A93CE1126DBB74700EEF761 /* Helper.swift */; };
 		1A93CE1426DBB89800EEF761 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A93CE1326DBB89800EEF761 /* TimerManager.swift */; };
+		1A9A086C270F215200EA0D7E /* EmojiArtDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A086B270F215200EA0D7E /* EmojiArtDocument.swift */; };
 		1A9C83CE26DD1F6B005AD936 /* CardFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C83CD26DD1F6B005AD936 /* CardFlip.swift */; };
 		1A9D602426E10B24002E1440 /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D602326E10B24002E1440 /* Pixel.swift */; };
 		1A9D602626E10C46002E1440 /* Helicopter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D602526E10C46002E1440 /* Helicopter.swift */; };
@@ -68,6 +69,7 @@
 		1A93CE0D26DB5EDC00EEF761 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		1A93CE1126DBB74700EEF761 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		1A93CE1326DBB89800EEF761 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		1A9A086B270F215200EA0D7E /* EmojiArtDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocument.swift; sourceTree = "<group>"; };
 		1A9C83CD26DD1F6B005AD936 /* CardFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlip.swift; sourceTree = "<group>"; };
 		1A9D602326E10B24002E1440 /* Pixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
 		1A9D602526E10C46002E1440 /* Helicopter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helicopter.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				1A14F42D2705ED3B00276689 /* EmojiArtModel.swift */,
+				1A9A086B270F215200EA0D7E /* EmojiArtDocument.swift */,
 				1A85B023270B25D700E8EFFB /* EmojiArtModel.Backgound.swift */,
 			);
 			path = EmojiArt;
@@ -312,6 +315,7 @@
 				1A9283A326DE68D800EA4261 /* CardFlipModel.swift in Sources */,
 				1A4E207D26EF7747003F24D9 /* Pie.swift in Sources */,
 				1A9C83CE26DD1F6B005AD936 /* CardFlip.swift in Sources */,
+				1A9A086C270F215200EA0D7E /* EmojiArtDocument.swift in Sources */,
 				1A7E6B1426DA7F8400DB5D7A /* PickerView.swift in Sources */,
 				1A7E6B0E26DA74D000DB5D7A /* TicTacTocView.swift in Sources */,
 				1A93CE1426DBB89800EEF761 /* TimerManager.swift in Sources */,
