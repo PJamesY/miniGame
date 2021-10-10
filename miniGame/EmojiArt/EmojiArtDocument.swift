@@ -16,4 +16,10 @@ class EmojiArtDocument: ObservableObject {
     
     var emojis: [EmojiArtModel.Emoji] { emojiArt.emojis }
     var background: EmojiArtModel.Background { emojiArt.background }
+    
+    // MARK: - Intent(s)
+    
+    func setBackground(_ background: EmojiArtModel.Background) {
+        emojiArt.background = background
+    }
 }
