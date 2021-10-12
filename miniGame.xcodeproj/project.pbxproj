@@ -38,6 +38,7 @@
 		1A9D602626E10C46002E1440 /* Helicopter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D602526E10C46002E1440 /* Helicopter.swift */; };
 		1A9D602826E10EBD002E1440 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D602726E10EBD002E1440 /* Obstacle.swift */; };
 		1A9D602A26E10F07002E1440 /* HelicopterGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D602926E10F07002E1440 /* HelicopterGame.swift */; };
+		1AC3B3162715BBBC00CAE158 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3B3152715BBBC00CAE158 /* UtilityExtensions.swift */; };
 		1ACC292F26E8EDF2008E4406 /* TicTacTocGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC292E26E8EDF2008E4406 /* TicTacTocGameModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		1A9D602526E10C46002E1440 /* Helicopter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helicopter.swift; sourceTree = "<group>"; };
 		1A9D602726E10EBD002E1440 /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
 		1A9D602926E10F07002E1440 /* HelicopterGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelicopterGame.swift; sourceTree = "<group>"; };
+		1AC3B3152715BBBC00CAE158 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		1ACC292E26E8EDF2008E4406 /* TicTacTocGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacTocGameModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				1A14F42D2705ED3B00276689 /* EmojiArtModel.swift */,
+				1AC3B3152715BBBC00CAE158 /* UtilityExtensions.swift */,
 				1A9A086B270F215200EA0D7E /* EmojiArtDocument.swift */,
 				1A85B023270B25D700E8EFFB /* EmojiArtModel.Backgound.swift */,
 			);
@@ -303,6 +306,7 @@
 				1A7DEBF726EC3880009E74DA /* MemorizeView.swift in Sources */,
 				1A9D602A26E10F07002E1440 /* HelicopterGame.swift in Sources */,
 				1A4E207F26EF7DB8003F24D9 /* Cardify.swift in Sources */,
+				1AC3B3162715BBBC00CAE158 /* UtilityExtensions.swift in Sources */,
 				1A7E6AFA26DA3F7200DB5D7A /* AppDelegate.swift in Sources */,
 				1A14F42E2705ED3B00276689 /* EmojiArtModel.swift in Sources */,
 				1A7DEBF326EC2B1A009E74DA /* MemoryGame.swift in Sources */,
