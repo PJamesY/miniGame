@@ -11,7 +11,8 @@ struct ContentView: View {
     var body: some View {
 //        Button {
         NavigationView {
-            NavigationLink("Word", destination:MemorizeView())
+//            NavigationLink("Word", destination:MemorizeView())
+            NavigationLink("emoji", destination:EmojiArtDocumentView())
         }
         
 //        } label: {
