@@ -33,4 +33,10 @@ class EmojiArtDocument: ObservableObject {
             emojiArt.emojis[index].y += Int(offset.height)
         }
     }
+    
+    func scaleEmoji(_ emoji: EmojiArtModel.Emoji, by scale: CGFloat) {
+        if let index = emojiArt.emojis.index(mathing: emoji) {
+            emojiArt.emojis[index].size = Int((CGFloat(emojiArt.emojis[index].size) * scale).rounded(.toNearestOrAwayFromZero))
+        }
+    }
 }
