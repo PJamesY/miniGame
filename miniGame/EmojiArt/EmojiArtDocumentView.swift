@@ -12,8 +12,12 @@ struct EmojiArtDocumentView: View {
     
     var body: some View {
         VStack(spacing:0) {
-            Text("james")
+            documentBody
         }
+    }
+    
+    var documentBody: some View {
+        Color.yellow
     }
 }
 
