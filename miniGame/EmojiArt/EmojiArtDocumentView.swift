@@ -11,7 +11,7 @@ struct EmojiArtDocumentView: View {
     @ObservedObject var document: EmojiArtDocument = EmojiArtDocument()
     
     var body: some View {
-        VStack {
+        VStack(spacing:0) {
             Text("james")
         }
     }
