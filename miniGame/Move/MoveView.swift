@@ -36,6 +36,12 @@ struct DetailView: View {
     @State private var breadOffset = CGSize(width: -800, height: 0)
     @State private var fishOffset = CGSize(width: -800, height: 0)
     
+    @State private var showHeart: Bool = false
+//
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//        print("Animation finished")
+//    }
+    
     var body: some View {
         HStack {
             Image(trail.image)
@@ -43,9 +49,14 @@ struct DetailView: View {
                 .scaledToFit()
                 .frame(width: 200, height: 200, alignment: .leading)
             
+            Spacer()
             
+            if breadOffset == CGSize(width: 10, height: 0) && fishOffset == CGSize(width: 10, height: 0) {
+                Text("❤️")
+                    .font(.system(size: 100))
+                    .fontWeight(.bold)
+            }
             
-            Text("❤️")
             
             Spacer()
             
