@@ -33,6 +33,8 @@ struct TrailRow: View {
 struct DetailView: View {
     var trail: Trail
     
+    @State private var breadOffset = CGSize(width: -900, height: 0)
+    
     var body: some View {
         HStack {
             Image(trail.image)
@@ -40,7 +42,26 @@ struct DetailView: View {
                 .scaledToFit()
                 .frame(width: 200, height: 200, alignment: .leading)
             
+            
+            
+            
+            
             Spacer()
+            
+            ZStack {
+                Image("jesus")
+                
+                Image("bread")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .offset(breadOffset)
+                    .onTapGesture {
+                        withAnimation(Animation.easeOut(duration: 2)) {
+                            breadOffset = CGSize(width: 10, height: 0)
+                        }
+                    }
+            }
             
             
         }
@@ -64,7 +85,7 @@ struct MoveView: View {
                 }
                 
             }
-            .navigationTitle("❤️")
+            .navigationTitle("잠실 교회 유치부 ❤️")
         }
         
         
