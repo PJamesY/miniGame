@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+//        EmojiArtDocumentView()
+        MoveView()
 //        Button {
-        NavigationView {
-//            NavigationLink("Word", destination:MemorizeView())
-            NavigationLink("emoji", destination:EmojiArtDocumentView())
-        }
+//        NavigationView {
+////            NavigationLink("Word", destination:MemorizeView())
+//            NavigationLink("emoji", destination:EmojiArtDocumentView())
+//        }
         
 //        } label: {
 //            Text("Please")

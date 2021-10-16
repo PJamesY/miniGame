@@ -41,6 +41,7 @@
 		1A9D602A26E10F07002E1440 /* HelicopterGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D602926E10F07002E1440 /* HelicopterGame.swift */; };
 		1AC3B3162715BBBC00CAE158 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3B3152715BBBC00CAE158 /* UtilityExtensions.swift */; };
 		1ACC292F26E8EDF2008E4406 /* TicTacTocGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC292E26E8EDF2008E4406 /* TicTacTocGameModel.swift */; };
+		1ADB5245271B02630072FC9F /* MoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB5244271B02630072FC9F /* MoveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		1A9D602926E10F07002E1440 /* HelicopterGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelicopterGame.swift; sourceTree = "<group>"; };
 		1AC3B3152715BBBC00CAE158 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		1ACC292E26E8EDF2008E4406 /* TicTacTocGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacTocGameModel.swift; sourceTree = "<group>"; };
+		1ADB5244271B02630072FC9F /* MoveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		1A7E6AF826DA3F7200DB5D7A /* miniGame */ = {
 			isa = PBXGroup;
 			children = (
+				1ADB5243271B02350072FC9F /* Move */,
 				1A14F42C2705ED1B00276689 /* EmojiArt */,
 				1A7DEBF126EC2AF5009E74DA /* Memorize */,
 				1A34AF1F26E33BB900B1720B /* Extension */,
@@ -229,6 +232,14 @@
 				1A9D602726E10EBD002E1440 /* Obstacle.swift */,
 			);
 			path = component;
+			sourceTree = "<group>";
+		};
+		1ADB5243271B02350072FC9F /* Move */ = {
+			isa = PBXGroup;
+			children = (
+				1ADB5244271B02630072FC9F /* MoveView.swift */,
+			);
+			path = Move;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +339,7 @@
 				1A7E6B0E26DA74D000DB5D7A /* TicTacTocView.swift in Sources */,
 				1A93CE1426DBB89800EEF761 /* TimerManager.swift in Sources */,
 				1A93CE0E26DB5EDC00EEF761 /* Alert.swift in Sources */,
+				1ADB5245271B02630072FC9F /* MoveView.swift in Sources */,
 				1A93CE1226DBB74700EEF761 /* Helper.swift in Sources */,
 				1A9D602626E10C46002E1440 /* Helicopter.swift in Sources */,
 				1A34AF2126E33BDC00B1720B /* Color.swift in Sources */,
