@@ -45,7 +45,7 @@ struct DetailView: View {
             
             
             
-            
+            Text("❤️")
             
             Spacer()
             
@@ -64,14 +64,18 @@ struct DetailView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 100, height: 100)
-                                .offset(fishOffset)
+                                
                             Image("fish")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 100, height: 100)
-                                .offset(fishOffset)
                         }
-                        
+                        .offset(fishOffset)
+                        .onTapGesture {
+                            withAnimation(Animation.easeOut(duration: 2)) {
+                                fishOffset = CGSize(width: 10, height: 0)
+                            }
+                        }
                     }
                     Group {
                         HStack {
