@@ -30,6 +30,23 @@ struct TrailRow: View {
     }
 }
 
+struct DetailView: View {
+    var trail: Trail
+    
+    var body: some View {
+        HStack {
+            Image(trail.image)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200, alignment: .leading)
+            
+            Spacer()
+            
+            
+        }
+    }
+}
+
 struct MoveView: View {
     @State private var dragAmount = CGSize.zero
     let Children = [
@@ -40,8 +57,12 @@ struct MoveView: View {
     var body: some View {
 //        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         NavigationView {
+            
             List(Children) { child in
-                TrailRow(trail: child)
+                NavigationLink(destination: DetailView(trail: child)) {
+                    TrailRow(trail: child)
+                }
+                
             }
             .navigationTitle("❤️")
         }
