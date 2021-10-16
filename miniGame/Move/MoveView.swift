@@ -33,7 +33,8 @@ struct TrailRow: View {
 struct DetailView: View {
     var trail: Trail
     
-    @State private var breadOffset = CGSize(width: -900, height: 0)
+    @State private var breadOffset = CGSize(width: -800, height: 0)
+    @State private var fishOffset = CGSize(width: -800, height: 0)
     
     var body: some View {
         HStack {
@@ -50,17 +51,91 @@ struct DetailView: View {
             
             ZStack {
                 Image("jesus")
-                
-                Image("bread")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .offset(breadOffset)
-                    .onTapGesture {
-                        withAnimation(Animation.easeOut(duration: 2)) {
-                            breadOffset = CGSize(width: 10, height: 0)
+                    .frame(width: 600, height: 600)
+                    .offset(CGSize(width: 0, height: -100))
+                
+                VStack {
+                    
+                    Group {
+                        HStack {
+                            Image("fish")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .offset(fishOffset)
+                            Image("fish")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .offset(fishOffset)
+                        }
+                        
+                    }
+                    Group {
+                        HStack {
+                            Image("bread")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .offset(breadOffset)
+                                .onTapGesture {
+                                    withAnimation(Animation.easeOut(duration: 2)) {
+                                        breadOffset = CGSize(width: 10, height: 0)
+                                    }
+                                }
+                            Image("bread")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .offset(breadOffset)
+                                .onTapGesture {
+                                    withAnimation(Animation.easeOut(duration: 2)) {
+                                        breadOffset = CGSize(width: 10, height: 0)
+                                    }
+                                }
+                        }
+                        
+                        HStack {
+                            Image("bread")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .offset(breadOffset)
+                                .onTapGesture {
+                                    withAnimation(Animation.easeOut(duration: 2)) {
+                                        breadOffset = CGSize(width: 10, height: 0)
+                                    }
+                                }
+                            Image("bread")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .offset(breadOffset)
+                                .onTapGesture {
+                                    withAnimation(Animation.easeOut(duration: 2)) {
+                                        breadOffset = CGSize(width: 10, height: 0)
+                                    }
+                                }
+                            Image("bread")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .offset(breadOffset)
+                                .onTapGesture {
+                                    withAnimation(Animation.easeOut(duration: 2)) {
+                                        breadOffset = CGSize(width: 10, height: 0)
+                                    }
+                                }
+                            
                         }
                     }
+                    
+                    
+                }
+                
+                
             }
             
             
@@ -71,8 +146,11 @@ struct DetailView: View {
 struct MoveView: View {
     @State private var dragAmount = CGSize.zero
     let Children = [
-        Trail(name: "라현이", image: "1-1"),
-        Trail(name: "선율이", image: "2")
+        Trail(name: "희준이", image: "5"),
+        Trail(name: "선율이", image: "3"),
+        Trail(name: "율이", image: "4"),
+        Trail(name: "라현이", image: "1-1")
+        
     ]
     
     var body: some View {
