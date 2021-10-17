@@ -25,6 +25,7 @@ struct EmojiArtDocumentView: View {
     
     var palette: some View {
         ScrollingEmojisView(emojis: testEmojis)
+            .font(.system(size: defaultEmojiFontSize))
     }
     
     let testEmojis = "🚗🚚😀😃😄🙂🤬😰😓🤔"

@@ -36,7 +36,7 @@ struct DetailView: View {
     @State private var breadOffset = CGSize(width: -800, height: 0)
     @State private var fishOffset = CGSize(width: -800, height: 0)
     
-    @State private var showHeart: Bool = false
+    @State private var showHearzt: Bool = false
 //
 //    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
 //        print("Animation finished")
