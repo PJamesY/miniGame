@@ -30,6 +30,9 @@ struct EmojiArtDocumentView: View {
                     
                 }
             }
+            .onDrop(of: [.plainText], isTargeted: nil) {providers, location in
+                return false
+            }
         }
         
         
@@ -67,6 +70,7 @@ struct ScrollingEmojisView: View {
             HStack {
                 ForEach(emojis.map { String($0) }, id: \.self) { emoji in
                     Text(emoji)
+                        .onDrag { NSItemProvider(object: emoji as NSString)}
                 }
             }
         }
