@@ -20,7 +20,19 @@ struct EmojiArtDocumentView: View {
     }
     
     var documentBody: some View {
-        Color.yellow
+        ZStack {
+            Color.yellow
+            ForEach(document.emojis) { emoji in
+                Text(emoji.text)
+                    .font(.system(size: fontSize(for: emoji)))
+                
+            }
+        }
+        
+    }
+    
+    private func fontSize(for emoji: EmojiArtModel.Emoji) -> CGFloat {
+        CGFloat(emoji.size)
     }
     
     var palette: some View {
