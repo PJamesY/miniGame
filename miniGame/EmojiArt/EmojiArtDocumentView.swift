@@ -20,15 +20,31 @@ struct EmojiArtDocumentView: View {
     }
     
     var documentBody: some View {
-        ZStack {
-            Color.yellow
-            ForEach(document.emojis) { emoji in
-                Text(emoji.text)
-                    .font(.system(size: fontSize(for: emoji)))
-                
+        GeometryReader { geometry in
+            ZStack {
+                Color.yellow
+                ForEach(document.emojis) { emoji in
+                    Text(emoji.text)
+                        .font(.system(size: fontSize(for: emoji)))
+                        .position(position(for: emoji, in: geometry))
+                    
+                }
             }
         }
         
+        
+    }
+    
+    private func position(for emoji: EmojiArtModel.Emoji, in geometry: GeometryProxy) -> CGPoint {
+        
+    }
+    
+    private func convertFromEmojiCoordinates(_ location: (x: Int, y: Int), in geometry: GeometryProxy) -> CGPoint {
+        let center = geometry.frame(in: .local).center
+        return CGPoint(
+            x: center.x + CGFloat(location.x),
+            y: center.y + CGFloat(location.y)
+        )
     }
     
     private func fontSize(for emoji: EmojiArtModel.Emoji) -> CGFloat {
