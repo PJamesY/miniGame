@@ -20,3 +20,9 @@ extension Collection where Element: Identifiable {
         firstIndex(where: { $0.id == element.id })
     }
 }
+
+extension CGRect {
+    var center: CGPoint {
+        CGPoint(x: midX, y: midY)
+    }
+}
