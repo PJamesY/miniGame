@@ -38,6 +38,10 @@ struct EmojiArtDocumentView: View {
         
     }
     
+    private func drop(providers: [NSItemProvider], at location: CGPoint) -> Bool {
+        return true
+    }
+    
     private func position(for emoji: EmojiArtModel.Emoji, in geometry: GeometryProxy) -> CGPoint {
         convertFromEmojiCoordinates((emoji.x, emoji.y), in: geometry)
     }
