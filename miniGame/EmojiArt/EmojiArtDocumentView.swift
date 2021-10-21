@@ -39,7 +39,12 @@ struct EmojiArtDocumentView: View {
     }
     
     private func drop(providers: [NSItemProvider], at location: CGPoint) -> Bool {
-        return true
+//        return providers.loadObjects(ofType: String.self) { string in
+//            if let
+//            document.addEmoji(emoji, at: convertToEmojiCoordinates(location), size: defaultEmojiFontSize)
+//
+//        }
+        return true 
     }
     
     private func position(for emoji: EmojiArtModel.Emoji, in geometry: GeometryProxy) -> CGPoint {
