@@ -77,7 +77,7 @@ struct EmojiArtDocumentView: View {
             .font(.system(size: defaultEmojiFontSize))
     }
     
-    let testEmojis = "🚗🚚😀😃😄🙂🤬😰😓🤔"
+    let testEmojis = "🚗🚚😀😃😄🙂🤬😰😓🤔🔵🟡"
 }
 
 struct ScrollingEmojisView: View {
