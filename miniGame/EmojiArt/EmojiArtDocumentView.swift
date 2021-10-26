@@ -43,12 +43,23 @@ struct EmojiArtDocumentView: View {
             document.setBackground(EmojiArtModel.Background.url(url))
         }
         
-        found = providers.loadObjects(ofType: String.self) { string in
-            if let emoji = string.first, emoji.isEmoji {
-                document.addEmoji(String(emoji), at: convertToEmojiCoordinates(location, in: geometry), size: defaultEmojiFontSize)
+        if !found {
+            found = providers.loadObjects(ofType: UIImage.self) { image in
+                if let data = image.jpegData(compressionQuality: 1.0) {
+                    document.setBackground(.imageData(data))
+                }
             }
-            
         }
+        
+        if !found {
+            found = providers.loadObjects(ofType: String.self) { string in
+                if let emoji = string.first, emoji.isEmoji {
+                    document.addEmoji(String(emoji), at: convertToEmojiCoordinates(location, in: geometry), size: defaultEmojiFontSize)
+                }
+                
+            }
+        }
+        
         
         return found
     }
