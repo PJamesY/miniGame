@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A13284F2729827800DA3AF1 /* UtilityViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A13284E2729827800DA3AF1 /* UtilityViews.swift */; };
 		1A14F42E2705ED3B00276689 /* EmojiArtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F42D2705ED3B00276689 /* EmojiArtModel.swift */; };
 		1A1FE19A26E3653E00B1C13E /* TetrisGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FE19926E3653E00B1C13E /* TetrisGameModel.swift */; };
 		1A34AF1C26E3388B00B1720B /* TetrisGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A34AF1B26E3388B00B1720B /* TetrisGameView.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A13284E2729827800DA3AF1 /* UtilityViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityViews.swift; sourceTree = "<group>"; };
 		1A14F42D2705ED3B00276689 /* EmojiArtModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtModel.swift; sourceTree = "<group>"; };
 		1A1FE19926E3653E00B1C13E /* TetrisGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameModel.swift; sourceTree = "<group>"; };
 		1A34AF1B26E3388B00B1720B /* TetrisGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisGameView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				1A9A086B270F215200EA0D7E /* EmojiArtDocument.swift */,
 				1A85B023270B25D700E8EFFB /* EmojiArtModel.Backgound.swift */,
 				1A94721D2717173400BE67A0 /* EmojiArtDocumentView.swift */,
+				1A13284E2729827800DA3AF1 /* UtilityViews.swift */,
 			);
 			path = EmojiArt;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				1A7DEBF326EC2B1A009E74DA /* MemoryGame.swift in Sources */,
 				1A8713C126EDE2E5002FF6EB /* AspectVGrid.swift in Sources */,
 				1A34AF1E26E3394F00B1720B /* TetrisGameViewModel.swift in Sources */,
+				1A13284F2729827800DA3AF1 /* UtilityViews.swift in Sources */,
 				1A7E6AFC26DA3F7200DB5D7A /* SceneDelegate.swift in Sources */,
 				1A94721E2717173400BE67A0 /* EmojiArtDocumentView.swift in Sources */,
 				1A7E6AFE26DA3F7200DB5D7A /* ContentView.swift in Sources */,
