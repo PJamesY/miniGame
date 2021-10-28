@@ -19,6 +19,8 @@ class EmojiArtDocument: ObservableObject {
     var emojis: [EmojiArtModel.Emoji] { emojiArt.emojis }
     var background: EmojiArtModel.Background { emojiArt.background }
     
+    @Published var backgroundImage: UIImage?
+    
     // MARK: - Intent(s)
     
     func setBackground(_ background: EmojiArtModel.Background) {
