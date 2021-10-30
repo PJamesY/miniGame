@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        EmojiArtDocumentView()
-//        MoveView()
+//        EmojiArtDocumentView()
+        MoveView()
 //        Button {
 //        NavigationView {
 ////            NavigationLink("Word", destination:MemorizeView())
