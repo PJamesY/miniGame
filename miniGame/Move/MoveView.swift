@@ -37,13 +37,29 @@ struct DetailView: View {
     @State private var fishOffset = CGSize(width: -800, height: 0)
     
     @State private var showHearzt: Bool = false
+    @State var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    @State private var imagIdx = 0
 //
 //    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
 //        print("Animation finished")
 //    }
     
+    func changeImageIdx() -> Void {
+        withAnimation{
+            imagIdx += 1
+        }
+    }
+    
     var body: some View {
         HStack {
+            Text("llll \(imagIdx)")
+                .onReceive(timer, perform: {_ in
+                    if (imagIdx > 3) {
+                        imagIdx = 0
+                    } else {
+                        imagIdx += 1
+                    }
+                })
             Image(trail.image)
                 .resizable()
                 .scaledToFit()
