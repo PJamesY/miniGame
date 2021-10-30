@@ -44,12 +44,6 @@ struct DetailView: View {
 //        print("Animation finished")
 //    }
     
-    func changeImageIdx() -> Void {
-        withAnimation{
-            imagIdx += 1
-        }
-    }
-    
     var body: some View {
         HStack {
             Text("llll \(imagIdx)")
@@ -174,6 +168,39 @@ struct DetailView: View {
     }
 }
 
+struct Rock:View {
+    var imageIdxDict = [0:"rock", 1:"siccior", 2:"paper"]
+    @State var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    @State private var imagIdx = 0
+    
+    func pause() {
+        timer.upstream.connect().cancel()
+    }
+    
+    var body: some View {
+        if let idx = imageIdxDict[imagIdx] {
+            Image(idx)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .onReceive(timer, perform: {_ in
+                    if (imagIdx > 1) {
+                        imagIdx = 0
+                    } else {
+                        imagIdx += 1
+                    }
+                })
+        }
+        
+        Button(action: {
+            pause()
+        }) {
+            Text("가위바위보")
+        }
+        
+    }
+}
+
 struct MoveView: View {
     @State private var dragAmount = CGSize.zero
     let Children = [
@@ -187,13 +214,19 @@ struct MoveView: View {
     var body: some View {
 //        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         NavigationView {
-            
-            List(Children) { child in
-                NavigationLink(destination: DetailView(trail: child)) {
-                    TrailRow(trail: child)
+            VStack {
+                NavigationLink(destination: Rock()) {
+                    Text("가위바위보")
                 }
                 
+                List(Children) { child in
+                    NavigationLink(destination: DetailView(trail: child)) {
+                        TrailRow(trail: child)
+                    }
+                    
+                }
             }
+            
             .navigationTitle("잠실 교회 유치부 ❤️")
         }
         
