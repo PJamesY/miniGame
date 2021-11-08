@@ -8,7 +8,11 @@
 import SwiftUI
 
 class EmojiArtDocument: ObservableObject {
-    @Published private(set) var emojiArt: EmojiArtModel
+    @Published private(set) var emojiArt: EmojiArtModel {
+        didSet {
+            
+        }
+    }
     
     init() {
         emojiArt = EmojiArtModel()
@@ -20,6 +24,8 @@ class EmojiArtDocument: ObservableObject {
     var background: EmojiArtModel.Background { emojiArt.background }
     
     @Published var backgroundImage: UIImage?
+    
+    
     
     // MARK: - Intent(s)
     
