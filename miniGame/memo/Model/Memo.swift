@@ -18,3 +18,9 @@ class Memo: Identifiable, ObservableObject {
         self.insertDate = insertDate
     }
 }
+
+extension Memo: Equatable {
+    static func == (lhs: Memo, rhs: Memo) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
