@@ -22,4 +22,9 @@ class MemoStore: ObservableObject {
     func insert(memo: String) {
         list.insert(Memo(content: memo), at: 0)
     }
+    
+    func update(memo: Memo?, content: String) {
+        guard let memo = memo else { return }
+        memo.content = content
+    }
 }
