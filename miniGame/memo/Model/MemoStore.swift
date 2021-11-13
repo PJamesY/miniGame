@@ -18,4 +18,8 @@ class MemoStore: ObservableObject {
             Memo(content: "Lorem Ipsum 3")
         ]
     }
+    
+    func insert(memo: String) {
+        list.insert(Memo(content: memo), at: 0)
+    }
 }
