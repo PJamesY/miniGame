@@ -27,4 +27,8 @@ class MemoStore: ObservableObject {
         guard let memo = memo else { return }
         memo.content = content
     }
+    
+    func delete(memo: Memo) {
+        self.list.removeAll { $0 == memo }
+    }
 }
