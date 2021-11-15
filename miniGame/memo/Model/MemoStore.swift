@@ -31,4 +31,10 @@ class MemoStore: ObservableObject {
     func delete(memo: Memo) {
         self.list.removeAll { $0 == memo }
     }
+    
+    func delete(set: IndexSet) {
+        for index in set {
+            self.list.remove(at: index)
+        }
+    }
 }
